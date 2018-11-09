@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour {
 
         enemy_animator.SetBool("e_death", false);
         target = go.transform;
-        maxDistance = 1.6f;
+        maxDistance = 2f;
     }
 
     // Update is called once per frame

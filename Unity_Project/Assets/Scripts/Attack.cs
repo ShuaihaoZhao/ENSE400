@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour {
 
     public GameObject target;
+    public GameObject weapen_effect;
     private Animator m_animator;
     private AnimatorStateInfo animSta;
 
@@ -79,31 +80,34 @@ public class Attack : MonoBehaviour {
         {
             m_animator.SetInteger("attack_level", 1);
             hitCount = 1;
+            /*
             if (direction > 0 && distance<2f)
             {
                 Health eh = target.GetComponent<Health>();
                 eh.adjHealth(-1);
-            }
+            }*/
         }
         else if (animSta.IsName(ATTACK1) && hitCount == 1 && animSta.normalizedTime > 0.6f)
         {
             m_animator.SetInteger("attack_level", 2);
             hitCount = 2;
+            /*
             if (direction > 0 && distance < 2f)
             {
                 Health eh = target.GetComponent<Health>();
                 eh.adjHealth(-2);
-            }
+            }*/
         }
         else if (animSta.IsName(ATTACK2) && hitCount == 2 && animSta.normalizedTime > 0.8f)
         {
             m_animator.SetInteger("attack_level", 3);
             hitCount = 3;
+            /*
             if (direction > 0 && distance < 2f)
             {
                 Health eh = target.GetComponent<Health>();
                 eh.adjHealth(-3);
-            }
+            }*/
 
         }
 

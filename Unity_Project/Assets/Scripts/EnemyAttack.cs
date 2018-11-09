@@ -55,14 +55,18 @@ public class EnemyAttack : MonoBehaviour {
         // dir ->projection to transform.forward
         float direction = Vector3.Dot(dir, transform.forward);
 
-        /*
-        if (distance <= 3f)
+        
+        /*if (distance <= 1.6f )
         {
             if (direction > 0)
             {
                 PlayerHealth eh = target.GetComponentInParent<PlayerHealth>();
-                eh.adjHealth(-10);
+                eh.adjHealth(-5);
             }
         }*/
     }
+
+
+
+
 }

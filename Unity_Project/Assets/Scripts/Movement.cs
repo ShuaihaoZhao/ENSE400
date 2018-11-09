@@ -100,6 +100,7 @@ public class Movement : MonoBehaviour {
 
         m_animator.SetFloat("BlendY", forwardInput);//***
         m_animator.SetFloat("BlendX", turnInput);
+        m_animator.SetBool("k_death", false);
 
     }
     /// <summary>
@@ -107,12 +108,12 @@ public class Movement : MonoBehaviour {
     /// </summary>
     void Run()
     {
-        if (Mathf.Abs(forwardInput) > inputSettings.inputDelay && transform.gameObject.GetComponent<Attack>().GetHit()==0)
+        if (Mathf.Abs(forwardInput) > inputSettings.inputDelay && transform.gameObject.GetComponent<Attack>().GetHit()==0 && m_animator.GetBool("k_death")!=true)
         {
             //m_animator.SetBool("run", true);
             velocity.z = moveSettings.forwardVel * forwardInput;
         }
-        else if (Mathf.Abs(forwardInput) < inputSettings.inputDelay && transform.gameObject.GetComponent<Attack>().GetHit() == 0)
+        else if (Mathf.Abs(forwardInput) < inputSettings.inputDelay && transform.gameObject.GetComponent<Attack>().GetHit() == 0 && m_animator.GetBool("k_death") != true)
         {
             //m_animator.SetBool("run", false);
             // m_animator.SetBool("fight", true);
@@ -120,13 +121,13 @@ public class Movement : MonoBehaviour {
         }
 
 
-        if (Mathf.Abs(turnInput) > inputSettings.inputDelay && transform.gameObject.GetComponent<Attack>().GetHit() == 0)
+        if (Mathf.Abs(turnInput) > inputSettings.inputDelay && transform.gameObject.GetComponent<Attack>().GetHit() == 0 && m_animator.GetBool("k_death") != true)
         {
             //m_animator.SetBool("run", false);
             // m_animator.SetBool("fight", true);
             velocity.x = moveSettings.forwardVel * turnInput;
         }
-        else if (Mathf.Abs(turnInput) < inputSettings.inputDelay && transform.gameObject.GetComponent<Attack>().GetHit() == 0)
+        else if (Mathf.Abs(turnInput) < inputSettings.inputDelay && transform.gameObject.GetComponent<Attack>().GetHit() == 0 && m_animator.GetBool("k_death") != true)
         {
             //m_animator.SetBool("run", false);
             // m_animator.SetBool("fight", true);

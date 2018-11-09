@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4391733214694208}
   - component: {fileID: 198104165136475214}
   - component: {fileID: 199550867056162698}
+  - component: {fileID: 114026297131581184}
   m_Layer: 0
   m_Name: weapon_effect
   m_TagString: Untagged
@@ -34,13 +35,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1091280453797552}
-  m_LocalRotation: {x: 0.5225745, y: 0.4724045, z: 0.4445534, w: -0.55328304}
-  m_LocalPosition: {x: 0.11, y: -0.028, z: 0.458}
+  m_LocalRotation: {x: -0.42947844, y: -0.54357976, z: 0.5553331, w: -0.46008107}
+  m_LocalPosition: {x: 0.114, y: -0.205, z: 0.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 266.64, y: -262.648, z: 181.765}
+  m_LocalEulerAnglesHint: {x: 447.344, y: 30.000002, z: -72.020004}
+--- !u!114 &114026297131581184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1091280453797552}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c3b18e5daa2274e9a5664f31694f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeCycle: 5
 --- !u!198 &198104165136475214
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -289,7 +302,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.05
+      scalar: 0.02
       minScalar: 1
       maxCurve:
         serializedVersion: 2

@@ -36,6 +36,7 @@ public class Movement : MonoBehaviour {
     private Rigidbody m_rigidbody;
     private Animator m_animator;
     private AnimatorStateInfo animSta;
+    private Transform camera_transform;
 
     /*
     private const string BLENDTREE = "Blend Tree";
@@ -58,12 +59,15 @@ public class Movement : MonoBehaviour {
         m_rotation = transform.rotation;//initial the rotation
         m_rigidbody = GetComponent<Rigidbody>();
         m_animator = GetComponent<Animator>();
+        camera_transform = Camera.main.transform;
 
     }
 
     private void Update()
     {
         GetInput();
+
+        transform.eulerAngles = new Vector3(0, camera_transform.eulerAngles.y, 0); 
         /*
         animSta = m_animator.GetCurrentAnimatorStateInfo(0);
 
@@ -162,12 +166,12 @@ public class Movement : MonoBehaviour {
 
     
     private void MouseControll()
-    {
+    {/*
         float xPosition = Input.mousePosition.x / Screen.width;
         //float yPosition = Input.mousePosition.y / Screen.height;
 
         float yAngle = Mathf.Clamp(xPosition * 720, 30, 360);
-        this.gameObject.transform.eulerAngles = new Vector3(0, yAngle, 0);
+        this.gameObject.transform.eulerAngles = new Vector3(0, yAngle, 0);*/
 
     }
 

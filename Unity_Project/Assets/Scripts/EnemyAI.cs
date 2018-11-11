@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour {
 
             if (Vector3.Distance(target.position, transform.position) > maxDistance)
             {
-                if (enemy_animator.GetBool("e_attack") == false)
+                if (enemy_animator.GetBool("e_attack") == false && enemy_animator.GetBool("e_hurt") == false)
                 {
                     enemy_animator.SetBool("e_walk", true);
 
@@ -85,11 +85,11 @@ public class EnemyAI : MonoBehaviour {
 
     public void Delete()
     {
-  
-      if (myTransform.gameObject.GetComponent<EnemyAI>().GetDeath() == "death")
-      {
-         GameObject.Destroy(myTransform.gameObject);
-      }
 
+        if (myTransform.gameObject.GetComponent<EnemyAI>().GetDeath() == "death")
+        {
+            GameObject.Destroy(myTransform.gameObject);
+           // gameObject.SetActive(false);
+        }
     }
 }

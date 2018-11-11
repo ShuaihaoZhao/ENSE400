@@ -40,12 +40,12 @@ public class Target : MonoBehaviour {
 
     private void SelectTarget()
     {
-        if (selectedTarget == null)
+        if (selectedTarget == null )
         {
             SortByDistance();
             selectedTarget = targets[0];
         }
-        else
+        else 
         {
             //get the current index
             int index = targets.IndexOf(selectedTarget);

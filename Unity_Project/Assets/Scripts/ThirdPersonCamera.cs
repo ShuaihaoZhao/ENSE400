@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour {
 
-    public float mouse_sensitivity=5;
+    public float mouse_sensitivity=6;
     public float distance = 3;
     public Transform target;//main character
 
@@ -23,7 +23,7 @@ public class ThirdPersonCamera : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
         mouse_x += Input.GetAxis("Mouse X")*mouse_sensitivity;
         mouse_y -= Input.GetAxis("Mouse Y") * mouse_sensitivity;
 

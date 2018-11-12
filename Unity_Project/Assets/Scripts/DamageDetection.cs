@@ -30,16 +30,28 @@ public class DamageDetection : MonoBehaviour
         if ((Time.time - tempTime) > cd1 && other.gameObject.name == "Knight_T_Pose")
         {
             //m_animator.SetBool("e_hurt", true);
+            if (transform.gameObject.name == "Sword_joint")
+            {
+                return;
+            }
+            Debug.Log(transform.gameObject.name + other.gameObject.name);
             other.gameObject.GetComponent<PlayerHealth>().adjHealth(-5);
             tempTime = Time.time;
         }
 
         if ((Time.time - tempTime) > cd2 && other.gameObject.name == "Enemy_T_Pose")
         {
-            Debug.Log(other.gameObject.name);
-            m_animator = other.GetComponent<Animator>();
-            m_animator.SetBool("e_hurt", true);
-            StartCoroutine("Message_hurt");
+            Debug.Log(transform.gameObject.name + other.gameObject.name);
+            if (transform.gameObject.name == "sword_joint")
+            {
+                return;
+            }
+            if (other.gameObject != null)
+            {
+                m_animator = other.GetComponent<Animator>();
+                m_animator.SetBool("e_hurt", true);
+                StartCoroutine("Message_hurt");
+            }
             other.gameObject.GetComponentInParent<Health>().adjHealth(-1);
             tempTime = Time.time;
         }

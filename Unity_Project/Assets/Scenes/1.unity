@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxValue: 10
-  e_health: {fileID: 0}
+  target: {fileID: 0}
 --- !u!114 &100034438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +540,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 257caf6cb8e0efe49bb2f1c574eed629,
     type: 3}
   m_PrefabInternal: {fileID: 1866519330}
+--- !u!143 &1141511385
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1141511384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &1141511386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 257caf6cb8e0efe49bb2f1c574eed629,
@@ -583,7 +600,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1141511384}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -889,7 +906,6 @@ GameObject:
   - component: {fileID: 1492463369}
   - component: {fileID: 1492463368}
   - component: {fileID: 1492463367}
-  - component: {fileID: 1492463370}
   - component: {fileID: 1492463371}
   m_Layer: 0
   m_Name: Main Camera
@@ -958,20 +974,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 26.528002, y: 0, z: 0}
---- !u!114 &1492463370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1492463366}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 264dbc2f7a5ac264190d63438608db63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookSmooth: 0.09
-  view: {x: 0, y: 3, z: -3}
-  target: {fileID: 1715732588}
 --- !u!114 &1492463371
 MonoBehaviour:
   m_ObjectHideFlags: 0

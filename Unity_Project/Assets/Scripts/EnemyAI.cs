@@ -9,11 +9,13 @@ public class EnemyAI : MonoBehaviour {
     public int rotationSpeed = 1;
     public string message = "live";
     public float maxDistance;
+    private float v_y;
 
     private Vector3 pos = Vector3.zero;
     private Transform myTransform;
     private Animator enemy_animator;
     private Rigidbody enemy_rig;
+    private CharacterController enemy_cc;
 
     private void Awake()
     {
@@ -30,6 +32,7 @@ public class EnemyAI : MonoBehaviour {
         enemy_animator.SetBool("e_death", false);
         target = go.transform;
         maxDistance = 2f;
+        enemy_cc = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -39,18 +42,27 @@ public class EnemyAI : MonoBehaviour {
         if (h.GetCurrentHealth() != 0)
         {
             Debug.DrawLine(target.position, myTransform.position);
-            myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
+            myTransform.LookAt(target.transform.position);
+            /*myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
              Quaternion.LookRotation(target.position - myTransform.position), rotationSpeed * Time.deltaTime);
-
+             */
             if (Vector3.Distance(target.position, transform.position) > maxDistance)
             {
                 if (enemy_animator.GetBool("e_attack") == false && enemy_animator.GetBool("e_hurt") == false)
                 {
                     enemy_animator.SetBool("e_walk", true);
 
-                    pos=myTransform.position + myTransform.forward * moveSpeed * Time.deltaTime;
+                    v_y += Time.deltaTime * -9f;
+                    Vector3 v = myTransform.forward * moveSpeed;
+                    v.y = v_y;
+                    //pos =myTransform.position + myTransform.forward * moveSpeed * Time.deltaTime;
 
-                    enemy_rig.MovePosition(pos);
+                    //enemy_rig.MovePosition(pos);
+                    enemy_cc.Move(v * Time.deltaTime);
+                    if (enemy_cc.isGrounded)
+                    {
+                        v_y = 0;
+                    }
                 }
             }
             else

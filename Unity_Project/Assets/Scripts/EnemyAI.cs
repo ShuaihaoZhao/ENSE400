@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour {
 
+    public GameObject item;
     public Transform target;
     public int moveSpeed = 1;
     public int rotationSpeed = 1;
@@ -46,7 +47,7 @@ public class EnemyAI : MonoBehaviour {
             /*myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
              Quaternion.LookRotation(target.position - myTransform.position), rotationSpeed * Time.deltaTime);
              */
-            if (Vector3.Distance(target.position, transform.position) > maxDistance)
+            if (Vector3.Distance(target.position, transform.position) > maxDistance && Vector3.Distance(target.position, transform.position)<10)
             {
                 if (enemy_animator.GetBool("e_attack") == false && enemy_animator.GetBool("e_hurt") == false)
                 {
@@ -100,8 +101,17 @@ public class EnemyAI : MonoBehaviour {
 
         if (myTransform.gameObject.GetComponent<EnemyAI>().GetDeath() == "death")
         {
+
+            Vector3 pos = new Vector3(Random.Range(myTransform.position.x-1, myTransform.position.x), 0.3f, Random.Range(myTransform.position.x - 1, myTransform.position.x + 1));
+            GameObject.Instantiate(item, pos, Quaternion.identity);
+
+
             GameObject.Destroy(myTransform.gameObject);
-           // gameObject.SetActive(false);
+
+
+           
+
+
         }
     }
 }

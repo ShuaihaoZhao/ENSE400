@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public GameObject blood;
+    public GameObject healBuff;
     public int currentHealth = 10;
     public int maxHealth = 10;
     // Use this for initialization
@@ -21,7 +22,15 @@ public class Health : MonoBehaviour
 
     public void adjHealth(int adj)
     {
-        GameObject.Instantiate(blood,transform.position,Quaternion.identity);
+        if (adj < 0)
+        {
+            GameObject.Instantiate(blood, transform.position, Quaternion.identity);
+        }
+        else if (adj > 0)
+        {
+            GameObject.Instantiate(healBuff, transform.position, Quaternion.identity);
+        }
+
         currentHealth += adj;
         if (currentHealth < 1)
         {

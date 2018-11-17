@@ -463,8 +463,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12494719, y: 0.059485912, z: 0.93893117}
-  m_Center: {x: 0.10038978, y: -0.02519894, z: 0.30300826}
+  m_Size: {x: 0.12494719, y: 0.059486244, z: 1.3435949}
+  m_Center: {x: 0.100389786, y: -0.025199026, z: 0.5053441}
 --- !u!1 &915316092
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693f2212a47aa7546b0c6adc0a36ec2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 1391667891699524, guid: 75250b9f06b15104da1b8d8816cd1ab7, type: 2}
   target: {fileID: 1715732588}
   moveSpeed: 1
   rotationSpeed: 2
@@ -617,6 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 1211009927318664, guid: 8a1a9db9bcbaf984a8349e9ee7bf6d15, type: 2}
+  healBuff: {fileID: 0}
   currentHealth: 10
   maxHealth: 10
 --- !u!54 &1141511391
@@ -1270,19 +1272,6 @@ MonoBehaviour:
   target: {fileID: 1141511384}
   weapen_effect: {fileID: 1091280453797552, guid: 118d4212b7dc2da4fa36ec580116f258,
     type: 2}
---- !u!136 &1715732591
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1715732586}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &1715732592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1295,6 +1284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 1211009927318664, guid: 8a1a9db9bcbaf984a8349e9ee7bf6d15, type: 2}
+  healBuff: {fileID: 1000396192289314, guid: 03cc25683a8e73541b8c60405ce0d175, type: 2}
   currentHealth: 100
   maxHealth: 100
 --- !u!114 &1715732593
@@ -1321,7 +1311,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.3
+  m_Radius: 0.4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.03

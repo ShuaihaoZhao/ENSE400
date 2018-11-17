@@ -23,6 +23,7 @@ public class EnemyAttack : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        float distance = Vector3.Distance(target.transform.position, transform.position);
         if (attackTimer > 0)
         {
             attackTimer -= Time.deltaTime;
@@ -33,10 +34,10 @@ public class EnemyAttack : MonoBehaviour {
             attackTimer = 0;
             enemy_animator.SetBool("e_attack", false);
         }
-        if (attackTimer == 0)
+        if (attackTimer == 0 && distance<10)
         {
             enemy_animator.SetBool("e_attack", true);
-            Attack();
+            //Attack();
             attackTimer = coolDown;
         }
 

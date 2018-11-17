@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamageDetection : MonoBehaviour
 {
 
-    private float cd1 = 4f;
+    private float cd1 = 3f;
     private float cd2 = 0.5f;
     private float tempTime = 0f;
     private string message;
@@ -29,19 +29,20 @@ public class DamageDetection : MonoBehaviour
 
         if ((Time.time - tempTime) > cd1 && other.gameObject.name == "Knight_T_Pose")
         {
-            //m_animator.SetBool("e_hurt", true);
-            if (transform.gameObject.name == "Sword_joint")
-            {
-                return;
-            }
-            Debug.Log(transform.gameObject.name + other.gameObject.name);
-            other.gameObject.GetComponent<PlayerHealth>().adjHealth(-5);
-            tempTime = Time.time;
+  
+                //m_animator.SetBool("e_hurt", true);
+                if (transform.gameObject.name == "Sword_joint")
+                {
+                    return;
+                }
+                //Debug.Log(transform.gameObject.name + other.gameObject.name);
+                other.gameObject.GetComponent<PlayerHealth>().adjHealth(-5);
+                tempTime = Time.time;
         }
 
         if ((Time.time - tempTime) > cd2 && other.gameObject.name == "Enemy_T_Pose")
         {
-            Debug.Log(transform.gameObject.name + other.gameObject.name);
+            //Debug.Log(transform.gameObject.name + other.gameObject.name);
             if (transform.gameObject.name == "sword_joint")
             {
                 return;

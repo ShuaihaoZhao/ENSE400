@@ -17,6 +17,7 @@ public class EnemyAI : MonoBehaviour {
     private Animator enemy_animator;
     private Rigidbody enemy_rig;
     private CharacterController enemy_cc;
+    private Target enemy_list; 
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class EnemyAI : MonoBehaviour {
     void Start()
     {
         GameObject go = GameObject.FindGameObjectWithTag("Kn");
+        enemy_list = GameObject.FindGameObjectWithTag("Kn").GetComponent<Target>();
         enemy_animator = gameObject.GetComponent<Animator>();
         enemy_rig = GetComponent<Rigidbody>();
 
@@ -34,6 +36,7 @@ public class EnemyAI : MonoBehaviour {
         target = go.transform;
         maxDistance = 2f;
         enemy_cc = GetComponent<CharacterController>();
+
     }
 
     // Update is called once per frame
@@ -102,16 +105,12 @@ public class EnemyAI : MonoBehaviour {
         if (myTransform.gameObject.GetComponent<EnemyAI>().GetDeath() == "death")
         {
 
-            Vector3 pos = new Vector3(Random.Range(myTransform.position.x-1, myTransform.position.x), 0.3f, Random.Range(myTransform.position.x - 1, myTransform.position.x + 1));
+            Vector3 pos = new Vector3(myTransform.position.x, 0.3f, myTransform.position.z);
+          
+            enemy_list.targets.Remove(myTransform);
+
             GameObject.Instantiate(item, pos, Quaternion.identity);
-
-
             GameObject.Destroy(myTransform.gameObject);
-
-
-           
-
-
         }
     }
 }

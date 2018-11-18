@@ -33,6 +33,8 @@ public class Movement : MonoBehaviour {
     float forwardInput, turnInput;
     float jumpInput;//reture value only -1,0,1
 
+    public float currentVelocity, rotationSmooth=0.3f;
+
     Vector3 velocity = Vector3.zero;
     private Quaternion m_rotation;//Quaterenion used for rotation
     private CharacterController controller;
@@ -64,9 +66,11 @@ public class Movement : MonoBehaviour {
     private void Update()
     {
         GetInput();
-        transform.eulerAngles = new Vector3(0, camera_transform.eulerAngles.y, 0);
-
-        
+        if (forwardInput != 0 || turnInput != 0 || jumpInput != 0)
+        {
+            transform.eulerAngles=Vector3.up* Mathf.SmoothDampAngle(transform.eulerAngles.y, camera_transform.eulerAngles.y, ref currentVelocity, rotationSmooth);
+            //transform.eulerAngles = new Vector3(0, camera_transform.eulerAngles.y, 0);
+        }
 
     }
 

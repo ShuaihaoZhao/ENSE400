@@ -40,7 +40,7 @@ public class DamageDetection : MonoBehaviour
                 tempTime = Time.time;
         }
 
-        if ((Time.time - tempTime) > cd2 && other.gameObject.name == "Enemy_T_Pose")
+        if ((Time.time - tempTime) > cd2 && other.gameObject.tag == "Enemy")
         {
             //Debug.Log(transform.gameObject.name + other.gameObject.name);
             if (transform.gameObject.name == "sword_joint")

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour {
 
-    public float mouse_sensitivity=6;
+    public float mouse_sensitivity=10f;
     public float distance = 3;
     public Transform target;//main character
 
     float mouse_x, mouse_y;//mouse based up and down
-    private Vector2 minMax = new Vector2(0, 45);// set the suitable value
+    private Vector2 minMax = new Vector2(10, 45);// set the suitable value
 
-    float rotationSmooth = 0.7f;
+    float rotationSmooth = 0.2f;
 
     //used for the smoothDamp function
     Vector3 currentVelocity;

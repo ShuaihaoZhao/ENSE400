@@ -6,17 +6,25 @@ public class Target : MonoBehaviour {
 
     public List<Transform> targets;
     public Transform selectedTarget;//enemy
+    //public int num;
 
     // Use this for initialization
     void Start()
     {
         targets = new List<Transform>();
         AddAllEnemies();
+        //num = targets.Count;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
+        if (CheckState())//enemy number changed return true 
+        {
+            AddAllEnemies();
+            
+        }*/
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SelectTarget();
@@ -31,6 +39,19 @@ public class Target : MonoBehaviour {
             AddTarget(enemy.transform);
         }
 
+    }
+
+    public bool CheckState()
+    {
+        GameObject[] check_enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in check_enemy)
+        {
+            if (enemy == null)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void AddTarget(Transform t)

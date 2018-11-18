@@ -24,7 +24,7 @@ public class GameItem : MonoBehaviour {
         
         if (other.gameObject.name == "Knight_T_Pose")
         {
-            other.gameObject.GetComponent<PlayerHealth>().adjHealth(20);
+            other.gameObject.GetComponent<PlayerHealth>().adjHealth(10);
             GameObject.Destroy(gameObject);
         }
     }

@@ -307,7 +307,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.4
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 1211009927318664, guid: 8a1a9db9bcbaf984a8349e9ee7bf6d15, type: 2}
-  healBuff: {fileID: 0}
+  healBuff: {fileID: 1000396192289314, guid: 03cc25683a8e73541b8c60405ce0d175, type: 2}
   currentHealth: 10
   maxHealth: 10
 --- !u!54 &1141511391
@@ -1258,6 +1258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a47e792d6c70746bdccd79fa7ccc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentVelocity: 0
+  rotationSmooth: 0.3
 --- !u!114 &1715732590
 MonoBehaviour:
   m_ObjectHideFlags: 0

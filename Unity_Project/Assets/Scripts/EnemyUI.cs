@@ -22,7 +22,7 @@ public class EnemyUI : MonoBehaviour
     {
         //Vector2 hp = Camera.main.WorldToScreenPoint(target.transform.position);
 
-        transform.localPosition = new Vector3(16 - 16 * (e_health.GetCurrentHealth() / maxValue), 0f, 0f);
+        transform.localPosition = new Vector2(16 - 16 * (e_health.GetCurrentHealth() / maxValue), 0f);
         //Debug.Log(-16 + 16 * (e_health.GetCurrentHealth() / maxValue));
     }
 }

@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
     {
         if (adj < 0)
         {
-            GameObject.Instantiate(blood, transform.position, Quaternion.identity);
+            GameObject.Instantiate(blood, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
         }
         else if (adj > 0)
         {           

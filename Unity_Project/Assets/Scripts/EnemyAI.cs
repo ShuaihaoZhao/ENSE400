@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour {
 
@@ -17,7 +18,9 @@ public class EnemyAI : MonoBehaviour {
     private Animator enemy_animator;
     private Rigidbody enemy_rig;
     private CharacterController enemy_cc;
-    private Target enemy_list; 
+    private Target enemy_list;
+
+    public NavMeshAgent navMeshAgent_enemy;
 
     private void Awake()
     {
@@ -55,14 +58,16 @@ public class EnemyAI : MonoBehaviour {
                 if (enemy_animator.GetBool("e_attack") == false && enemy_animator.GetBool("e_hurt") == false)
                 {
                     enemy_animator.SetBool("e_walk", true);
-
+                    /*
                     v_y += Time.deltaTime * -9f;
                     Vector3 v = myTransform.forward * moveSpeed;
                     v.y = v_y;
                     //pos =myTransform.position + myTransform.forward * moveSpeed * Time.deltaTime;
 
                     //enemy_rig.MovePosition(pos);
-                    enemy_cc.Move(v * Time.deltaTime);
+                    enemy_cc.Move(v * Time.deltaTime);*/
+                    navMeshAgent_enemy.SetDestination(target.transform.position);
+                    //Debug.Log(Vector3.Distance(target.position, transform.position));
                     if (enemy_cc.isGrounded)
                     {
                         v_y = 0;
@@ -72,6 +77,9 @@ public class EnemyAI : MonoBehaviour {
             else
             {
                 enemy_animator.SetBool("e_walk", false);
+                navMeshAgent_enemy.isStopped = true;
+                navMeshAgent_enemy.ResetPath();
+
             }
         }
         else

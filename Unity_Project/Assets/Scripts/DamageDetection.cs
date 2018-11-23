@@ -25,13 +25,13 @@ public class DamageDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("test"+other.gameObject.name);
+        //Debug.Log("test: "+other.gameObject.name);
 
         if ((Time.time - tempTime) > cd1 && other.gameObject.name == "Knight_T_Pose")
         {
-  
+                 Debug.Log("test: "+transform.gameObject.tag);
                 //m_animator.SetBool("e_hurt", true);
-                if (transform.gameObject.name == "Sword_joint")
+                if (transform.gameObject.tag == "Kn_w")
                 {
                     return;
                 }
@@ -70,8 +70,15 @@ public class DamageDetection : MonoBehaviour
     {
         if (message == "hurt")
         {
-            m_animator.SetBool("e_hurt", false);
-            message = "nothurt";
+            if (m_animator.gameObject == null)
+            {
+                return;
+            }
+            else
+            {
+                m_animator.SetBool("e_hurt", false);
+                message = "nothurt";
+            }
         }
     }
 }

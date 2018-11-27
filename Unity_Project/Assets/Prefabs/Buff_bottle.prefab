@@ -56,8 +56,10 @@ GameObject:
   - component: {fileID: 4624722899313504}
   - component: {fileID: 114451846949236276}
   - component: {fileID: 136520483950609226}
+  - component: {fileID: 114065334434367038}
+  - component: {fileID: 114648614619166992}
   m_Layer: 0
-  m_Name: Test
+  m_Name: Buff_bottle
   m_TagString: Item1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391667891699524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.599, y: 0.319, z: 0.7372041}
+  m_LocalPosition: {x: -0.599, y: 0.319, z: 4.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4192706372227752}
@@ -202,6 +204,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f8270a09e16cc1843bc98462e3379516, type: 3}
+--- !u!114 &114065334434367038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391667891699524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b76f11d6bac174db276b4a8aa02c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1
 --- !u!114 &114451846949236276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,6 +227,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791f6988fada83e41a4f18db429ba8a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114648614619166992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391667891699524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bec131b74ad14941bab416b2144671d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2
+  item: {fileID: 11400000, guid: 1cb9d7a224cc5b84e9f7b0d577e70175, type: 2}
 --- !u!136 &136520483950609226
 CapsuleCollider:
   m_ObjectHideFlags: 1

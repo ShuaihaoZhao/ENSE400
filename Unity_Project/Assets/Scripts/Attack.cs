@@ -36,12 +36,12 @@ public class Attack : MonoBehaviour {
             hitCount = 0;
         }
 
-        if (Input.GetMouseButton(0) && target!=null)
+        if (Input.GetMouseButton(1) && target!=null)
         {
             MyAttack();
         }
 
-        if(Input.GetMouseButton(0) && target == null)
+        if(Input.GetMouseButton(1) && target == null)
         {
             AttackAnimation();
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ThirdPersonCamera : MonoBehaviour {
 
@@ -24,15 +25,26 @@ public class ThirdPersonCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-        mouse_x += Input.GetAxis("Mouse X")*mouse_sensitivity;
+
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+        Update_camera();
+
+    }
+
+    void Update_camera()
+    {
+        mouse_x += Input.GetAxis("Mouse X") * mouse_sensitivity;
         mouse_y -= Input.GetAxis("Mouse Y") * mouse_sensitivity;
 
         mouse_y = Mathf.Clamp(mouse_y, minMax.x, minMax.y);
-
+        /*
+        if (Input.GetMouseButton(1))
+        {*/
         currntRotation = Vector3.SmoothDamp(currntRotation, new Vector3(mouse_y, mouse_x), ref currentVelocity, rotationSmooth);
 
         transform.eulerAngles = currntRotation;
-
+        // }
         transform.position = target.position - transform.forward * distance;
     }
 }

@@ -6,10 +6,12 @@ public class EnemyAttack : MonoBehaviour {
 
     public GameObject target;
     private Animator enemy_animator;
+    private AnimatorStateInfo enemy_animSta;
     private Health m_heath;
 
     public float attackTimer;
     public float coolDown;
+    private int hitNum;
     // Use this for initialization
     void Start()
     {
@@ -18,31 +20,45 @@ public class EnemyAttack : MonoBehaviour {
 
         attackTimer = 0;
         coolDown = 2f;
+        hitNum = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        enemy_animSta= enemy_animator.GetCurrentAnimatorStateInfo(0);
+
         float distance = Vector3.Distance(target.transform.position, transform.position);
         if (attackTimer > 0)
         {
             attackTimer -= Time.deltaTime;
-            enemy_animator.SetBool("e_attack", false);
+            enemy_animator.SetBool("e_attack", false);          
         }
         if (attackTimer < 0)
         {
             attackTimer = 0;
             enemy_animator.SetBool("e_attack", false);
+
         }
         if (attackTimer == 0 && distance<10)
         {
             enemy_animator.SetBool("e_attack", true);
-            //Attack();
             attackTimer = coolDown;
+            hitNum = 1;
+        }
+
+        if (enemy_animSta.IsName("Idel_state") && enemy_animSta.normalizedTime > 1f)
+        {
+            hitNum = 0;
         }
 
 
 
+    }
+
+    public int Enemy_HitNum()
+    {
+        return hitNum;
     }
 
     private void Attack()

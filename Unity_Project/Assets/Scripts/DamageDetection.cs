@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamageDetection : MonoBehaviour
 {
 
-    private float cd1 = 3f;
+    private float cd1 = 1f;
     private float cd2 = 0.5f;
     private float tempTime = 0f;
     private string message;
@@ -29,12 +29,24 @@ public class DamageDetection : MonoBehaviour
 
         if ((Time.time - tempTime) > cd1 && other.gameObject.name == "Knight_T_Pose")
         {
-                 Debug.Log("test: "+transform.gameObject.tag);
-                //m_animator.SetBool("e_hurt", true);
-                if (transform.gameObject.tag == "Kn_w")
+                 //Debug.Log("test: "+transform.gameObject.name);
+
+            if (transform.gameObject.name == "Maria_sword")
+            {
+                int enemy_attack_number = transform.gameObject.GetComponentInParent<EnemyAttack>().Enemy_HitNum();
+                Debug.Log(enemy_attack_number);
+                
+                if (enemy_attack_number == 1)
                 {
                     return;
                 }
+            }
+
+            if (transform.gameObject.tag == "Kn_w")
+                {
+                    return;
+                }
+               
                 //Debug.Log(transform.gameObject.name + other.gameObject.name);
                 other.gameObject.GetComponent<PlayerHealth>().adjHealth(-5);
                 tempTime = Time.time;
@@ -42,11 +54,24 @@ public class DamageDetection : MonoBehaviour
 
         if ((Time.time - tempTime) > cd2 && other.gameObject.tag == "Enemy")
         {
-            //Debug.Log(transform.gameObject.name + other.gameObject.name);
-            if (transform.gameObject.name == "sword_joint")
+            if (transform.gameObject.name == "Maria_sword")
             {
                 return;
             }
+            if (transform.gameObject.name == "Paladin_J_Nordstrom_Sword")
+            {
+                int attack_number = transform.gameObject.GetComponentInParent<Attack>().GetHit();
+                if (attack_number == 0)
+                {
+                    return;
+                }
+            }
+
+            if (transform.gameObject.name == "Enemy_T_Pose" )
+            {
+                return;
+            }
+
             if (other.gameObject != null)
             {
                 m_animator = other.GetComponent<Animator>();

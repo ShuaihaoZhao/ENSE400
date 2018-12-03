@@ -5,7 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour {
 
     public GameObject target;
-    public GameObject weapen_effect;
+
     private Animator m_animator;
     private AnimatorStateInfo animSta;
 
@@ -35,13 +35,13 @@ public class Attack : MonoBehaviour {
             m_animator.SetInteger("attack_level", 0);
             hitCount = 0;
         }
-
+        /*
         if (Input.GetMouseButton(1) && target!=null)
         {
             MyAttack();
-        }
+        }*/
 
-        if(Input.GetMouseButton(1) && target == null)
+        if(Input.GetMouseButton(1))// && target == null)
         {
             AttackAnimation();
         }
@@ -65,6 +65,7 @@ public class Attack : MonoBehaviour {
             hitCount = 3;
         }
     }
+    
     private void MyAttack()
     {
         float distance = Vector3.Distance(target.transform.position, transform.position);

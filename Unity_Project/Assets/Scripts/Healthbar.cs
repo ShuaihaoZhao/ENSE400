@@ -24,7 +24,7 @@ public class Healthbar : MonoBehaviour {
     {
         currentHealth=target.GetComponent<PlayerHealth>().GetCurrentHealth();
         HealthBar.size = currentHealth / 100f;
-        Debug.Log(HealthBar.size);
+        //Debug.Log(HealthBar.size);
     }
     /*
     public void Damage(float value)

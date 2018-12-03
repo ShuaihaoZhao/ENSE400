@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameItem : MonoBehaviour {
+public class GameItem : MonoBehaviour{
 
 
     private Transform my_transform;
@@ -17,15 +17,4 @@ public class GameItem : MonoBehaviour {
 	void Update () {
         my_transform.Rotate(Vector3.up, 2f);
 	}
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //Debug.Log(other.gameObject.name);
-        
-        if (other.gameObject.name == "Knight_T_Pose")
-        {
-            other.gameObject.GetComponent<PlayerHealth>().adjHealth(10);
-            GameObject.Destroy(gameObject);
-        }
-    }
 }

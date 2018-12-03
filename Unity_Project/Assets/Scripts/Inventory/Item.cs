@@ -11,4 +11,9 @@ public class Item : ScriptableObject {
     {
         
     }
+
+    public void Remove()
+    {
+        Inventory.instance.Remove(this);
+    }
 }

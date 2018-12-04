@@ -7,8 +7,10 @@ public class Healthbar : MonoBehaviour {
 
     public Scrollbar HealthBar;
     public float Health = 100;
+    public Image health_image;
     private GameObject target;
     private int currentHealth;
+
 
 
     private void Start()
@@ -24,13 +26,16 @@ public class Healthbar : MonoBehaviour {
     {
         currentHealth=target.GetComponent<PlayerHealth>().GetCurrentHealth();
         HealthBar.size = currentHealth / 100f;
-        //Debug.Log(HealthBar.size);
+
+        if (HealthBar.size >= 0.5)
+        {
+            health_image.color = new Color32((byte)(int)(510 * (1 - HealthBar.size)), 255, 0, 255);//calculated slop
+        }
+        else
+        {
+            health_image.color = new Color32(255,(byte)(int)(255-510 * (1 - HealthBar.size)), 0, 255);
+        }
+
     }
-    /*
-    public void Damage(float value)
-    {
-        Health -= value;
-        HealthBar.size = Health / 100f;
-    }*/
-	
+
 }

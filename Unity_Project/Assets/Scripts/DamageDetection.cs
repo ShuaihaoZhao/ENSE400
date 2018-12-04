@@ -36,7 +36,7 @@ public class DamageDetection : MonoBehaviour
                 int enemy_attack_number = transform.gameObject.GetComponentInParent<EnemyAttack>().Enemy_HitNum();
                 Debug.Log(enemy_attack_number);
                 
-                if (enemy_attack_number == 1)
+                if (enemy_attack_number == 0)
                 {
                     return;
                 }

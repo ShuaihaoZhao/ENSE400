@@ -8,10 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfc0cbf13e003fd4cb3f38a6f90b7b1d, type: 3}
-  m_Name: BuffBottle
+  m_Script: {fileID: 11500000, guid: 9da564f7c1ab13346a1e0e85b7861522, type: 3}
+  m_Name: Sword_2
   m_EditorClassIdentifier: 
-  item_name: small_buff_bottle
-  image: {fileID: 21300000, guid: 629a73ab0c99c404c9beb04cf6c4729b, type: 3}
+  item_name: Sword_2
+  image: {fileID: 21300000, guid: 84f096278bdf94b4092d5ccb9f5dac71, type: 3}
   isDefautItem: 0
-  buff_value: 10
+  damage: 10
+  armor: 0
+  position: 0

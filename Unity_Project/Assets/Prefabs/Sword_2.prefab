@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 95756038082796726}
   - component: {fileID: 64197020795712176}
   - component: {fileID: 114954174745917512}
+  - component: {fileID: 114605383355992568}
   m_Layer: 0
   m_Name: Sword_2
   m_TagString: Kn_w
@@ -191,6 +192,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114605383355992568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1977822081632558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bec131b74ad14941bab416b2144671d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.2
+  item: {fileID: 11400000, guid: e409d0045759c28489d16dcb5cb79825, type: 2}
 --- !u!114 &114954174745917512
 MonoBehaviour:
   m_ObjectHideFlags: 1

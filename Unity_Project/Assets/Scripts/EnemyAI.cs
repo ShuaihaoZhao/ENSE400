@@ -116,7 +116,7 @@ public class EnemyAI : MonoBehaviour {
             Vector3 pos = new Vector3(myTransform.position.x, 0.3f, myTransform.position.z);
           
             enemy_list.targets.Remove(myTransform);
-            if (Random.Range(0, 5) >= 1)
+            if (Random.Range(1, 5) >= 0.1)
             {
                 GameObject.Instantiate(item, pos, Quaternion.identity);
             }

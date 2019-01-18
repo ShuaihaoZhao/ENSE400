@@ -28,8 +28,14 @@ public class EquipmentManager : MonoBehaviour {
         player_weapons = GameObject.FindGameObjectsWithTag("Kn_w");
         for (int j = 0; j < player_weapons.Length; j++)//check different weapon states
         {
-            Debug.Log(player_weapons[j].name);
-            player_weapons[j].SetActive(false);
+            if (player_weapons[j].name == "Paladin_J_Nordstrom_Sword")
+            {
+                player_weapons[j].SetActive(true);
+            }
+            else
+            {
+                player_weapons[j].SetActive(false);
+            }
         }
     }
 

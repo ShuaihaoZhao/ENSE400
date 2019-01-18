@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Halberd_A
   m_EditorClassIdentifier: 
   item_name: Halberd_A
-  image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  image: {fileID: 21300000, guid: 95ff8dad8084add4fa3877cc444b1c90, type: 3}
   isDefautItem: 0
   damage: 10
   armor: 0

@@ -13,10 +13,15 @@ public class Stats{
     public int GetValue()
     {
         int final = value;
-        foreach (var temp in modifier)
+        foreach (var temp in modifier)//add them all
             final += temp;
 
         return final;
+    }
+
+    public void SetValue()
+    {
+        value = 0;
     }
 
     public void Add_modifier(int value)

@@ -15059,6 +15059,7 @@ GameObject:
   - component: {fileID: 1715732590}
   - component: {fileID: 1715732592}
   - component: {fileID: 1715732593}
+  - component: {fileID: 1715732594}
   m_Layer: 9
   m_Name: Knight_T_Pose
   m_TagString: Kn
@@ -15148,7 +15149,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1715732586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08bb851d9bc22b54295cd5b9b61298e7, type: 3}
   m_Name: 
@@ -15170,6 +15171,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   selectedTarget: {fileID: 0}
+--- !u!114 &1715732594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1715732586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45aaef65b7580b047a19b30f0ff61fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blood: {fileID: 1211009927318664, guid: 8a1a9db9bcbaf984a8349e9ee7bf6d15, type: 2}
+  healBuff: {fileID: 1000396192289314, guid: 03cc25683a8e73541b8c60405ce0d175, type: 2}
+  currentHealth: 100
+  maxHealth: 100
+  damage:
+    value: 0
+  armor:
+    value: 0
 --- !u!143 &1715732595
 CharacterController:
   m_ObjectHideFlags: 0

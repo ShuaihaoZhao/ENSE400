@@ -13,7 +13,7 @@ public class BuffBottle_GameItem : Item {
         base.UseItem();
         GameObject character = GameObject.FindGameObjectWithTag("Kn");
 
-        character.GetComponent<PlayerHealth>().adjHealth(buff_value);
+        character.GetComponent<Player_stats>().Heal(buff_value);
         Remove();
     }
 }

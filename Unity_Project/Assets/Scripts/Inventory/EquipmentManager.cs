@@ -41,12 +41,21 @@ public class EquipmentManager : MonoBehaviour {
     public void Equip(Equipment newEquipment)
     {
         int equipemt_index_numer = (int)newEquipment.position;//different position index number
+        Equipment oldEquipment = null;
 
-        currentEquipment[equipemt_index_numer] = newEquipment;
-
+        if (currentEquipment[equipemt_index_numer] == null)
+        {
+            currentEquipment[equipemt_index_numer] = newEquipment;
+        }
+        else
+        {
+            oldEquipment = currentEquipment[equipemt_index_numer];
+            currentEquipment[equipemt_index_numer] = newEquipment;
+        }
+        
         if (changeEquipment != null)
         {
-            //changeEquipment.Invoke(newitem, olditem);
+            changeEquipment.Invoke(newEquipment,oldEquipment);
         }
         Update_newEquipment();
 

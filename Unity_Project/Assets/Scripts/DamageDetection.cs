@@ -48,8 +48,9 @@ public class DamageDetection : MonoBehaviour
                 }
                
                 //Debug.Log(transform.gameObject.name + other.gameObject.name);
-                other.gameObject.GetComponent<PlayerHealth>().adjHealth(-5);
-                tempTime = Time.time;
+                //other.gameObject.GetComponent<PlayerHealth>().adjHealth(-1);
+            other.gameObject.GetComponent<Player_stats>().Get_Damage(10);
+            tempTime = Time.time;
         }
 
         if ((Time.time - tempTime) > cd2 && other.gameObject.tag == "Enemy")

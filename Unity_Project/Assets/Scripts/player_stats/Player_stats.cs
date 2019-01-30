@@ -2,35 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_stats : MonoBehaviour {
+public class Player_stats : Health {
 
+    private Animator m_animator;
     public Stats damage;
     public Stats armor;
-    public int maxHealth = 100;
-    public int currenthealth;
 
     public void Awake()
     {
-        currenthealth = maxHealth;
+        maxHealth = 100;
+        currentHealth = maxHealth;
     }
 
     public void Start()
     {
+        m_animator = GetComponent<Animator>();
         EquipmentManager.instance.changeEquipment += changeEquipment;
     
     }
 
-    void changeEquipment(Equipment newitem)
+    void changeEquipment(Equipment newitem, Equipment olditem)
     {
-       // damage.
+        if (newitem != null)
+        {
+            armor.Add_modifier(newitem.armor);
+            damage.Add_modifier(newitem.damage);
+        }
+
+        if (olditem != null)
+        {
+            armor.Add_modifier(olditem.armor);
+            damage.Add_modifier(olditem.damage);
+        }
     }
 
-    public void changeEquipment()
-    {
 
-    }
     public void Get_Damage(int damage_value)
     {
+        Damage_animation();
         damage_value -= armor.GetValue();//with armor
 
         if (damage_value <= 0)//if the armor is high get zero damage
@@ -38,16 +47,29 @@ public class Player_stats : MonoBehaviour {
             damage_value = 0;
         }
 
-        currenthealth -= damage_value;
+        currentHealth -= damage_value;
 
-        if (currenthealth <= 0)
+        if (currentHealth <= 0)
         {
+            currentHealth = 0;
             Die();
+        }
+    }
+
+    public void Heal(int value)
+    {
+        Heal_animation();
+        currentHealth += value;
+
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
         }
     }
 
     public virtual void Die()
     {
+        m_animator.SetBool("k_death", true);
     }
 
 

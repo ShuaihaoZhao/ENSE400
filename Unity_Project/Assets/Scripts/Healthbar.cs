@@ -24,7 +24,7 @@ public class Healthbar : MonoBehaviour {
     }
     public void Health_UI()
     {
-        currentHealth=target.GetComponent<PlayerHealth>().GetCurrentHealth();
+        currentHealth=target.GetComponent<Player_stats>().GetCurrentHealth();
         HealthBar.size = currentHealth / 100f;
 
         if (HealthBar.size >= 0.5)

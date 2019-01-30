@@ -17,14 +17,13 @@ public class EquipmentManager : MonoBehaviour {
     private int index;
     private GameObject[] player_weapons;
 
-    //public GameObject sword_1;
-    //public GameObject sword_2;
-    //public GameObject halbert_1;
+    public delegate void ChangeEuipment(Equipment newitem, Equipment olditem);
+    public ChangeEuipment changeEquipment;
 
     private void Start()
     {
         index = System.Enum.GetNames(typeof(Equip_position)).Length;
-        currentEquipment = new Equipment[index];
+        currentEquipment = new Equipment[index];//initial all position in a arrays
         player_weapons = GameObject.FindGameObjectsWithTag("Kn_w");
         for (int j = 0; j < player_weapons.Length; j++)//check different weapon states
         {
@@ -44,6 +43,11 @@ public class EquipmentManager : MonoBehaviour {
         int equipemt_index_numer = (int)newEquipment.position;//different position index number
 
         currentEquipment[equipemt_index_numer] = newEquipment;
+
+        if (changeEquipment != null)
+        {
+            //changeEquipment.Invoke(newitem, olditem);
+        }
         Update_newEquipment();
 
     }

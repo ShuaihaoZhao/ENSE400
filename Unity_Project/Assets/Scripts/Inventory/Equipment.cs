@@ -18,6 +18,6 @@ public class Equipment : Item {
     }
 }
 
-public enum Equip_position { weapon,head,armor};
+public enum Equip_position { weapon,shield};
 
 

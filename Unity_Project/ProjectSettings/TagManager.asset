@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Item1
   - Kn_w
+  - Kn_s
   layers:
   - Default
   - TransparentFX

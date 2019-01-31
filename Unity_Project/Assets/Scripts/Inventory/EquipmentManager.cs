@@ -16,6 +16,7 @@ public class EquipmentManager : MonoBehaviour {
     Equipment[] currentEquipment;
     private int index;
     private GameObject[] player_weapons;
+    private GameObject[] player_shields;
 
     public delegate void ChangeEuipment(Equipment newitem, Equipment olditem);
     public ChangeEuipment changeEquipment;
@@ -25,6 +26,7 @@ public class EquipmentManager : MonoBehaviour {
         index = System.Enum.GetNames(typeof(Equip_position)).Length;
         currentEquipment = new Equipment[index];//initial all position in a arrays
         player_weapons = GameObject.FindGameObjectsWithTag("Kn_w");
+        player_shields = GameObject.FindGameObjectsWithTag("Kn_s");
         for (int j = 0; j < player_weapons.Length; j++)//check different weapon states
         {
             if (player_weapons[j].name == "Paladin_J_Nordstrom_Sword")
@@ -34,6 +36,18 @@ public class EquipmentManager : MonoBehaviour {
             else
             {
                 player_weapons[j].SetActive(false);
+            }
+        }
+
+        for (int i = 0; i < player_shields.Length; i++)//check different weapon states
+        {
+            if (player_shields[i].name == "Paladin_J_Nordstrom_Shield")
+            {
+                player_shields[i].SetActive(true);
+            }
+            else
+            {
+                player_shields[i].SetActive(false);
             }
         }
     }
@@ -57,12 +71,43 @@ public class EquipmentManager : MonoBehaviour {
         {
             changeEquipment.Invoke(newEquipment,oldEquipment);
         }
-        Update_newEquipment();
+        Update_newEquipment(equipemt_index_numer);
 
     }
 
-    public void Update_newEquipment()
+    public void Update_newEquipment(int position_index)
     {
+        string equipmentName = currentEquipment[position_index].name;
+
+        if (position_index == 0)
+        {
+            if (currentEquipment[position_index] != null)
+            {
+                for (int i = 0; i < player_weapons.Length; i++)//check different weapon states
+                {
+                    player_weapons[i].SetActive(false);
+                    if (player_weapons[i].name == equipmentName)
+                    {
+                        player_weapons[i].SetActive(true);
+                    }
+                }
+            }
+        }
+        else if (position_index == 1)
+        {
+            if (currentEquipment[position_index] != null)
+            {
+                for (int j = 0; j < player_shields.Length; j++)//check different shield states
+                {
+                    player_shields[j].SetActive(false);
+                    if (player_shields[j].name == equipmentName)
+                    {
+                        player_shields[j].SetActive(true);
+                    }
+                }
+            }
+        }
+        /*
         for (int i = 0; i < index; i++)//check all equipment position
         {
             if (currentEquipment[i] != null)
@@ -78,6 +123,6 @@ public class EquipmentManager : MonoBehaviour {
                 }
 
             }
-        }
+        }*/
     }
 }

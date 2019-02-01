@@ -11474,7 +11474,7 @@ MonoBehaviour:
   damage:
     value: 1
   armor:
-    value: 0
+    value: 2
 --- !u!143 &1715732595
 CharacterController:
   m_ObjectHideFlags: 0

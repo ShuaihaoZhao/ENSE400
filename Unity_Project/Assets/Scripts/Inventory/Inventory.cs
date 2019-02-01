@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour {
         instance = this;
     }
     #endregion
-    public int space = 7;
+    public int space = 8;
     public List<Item> items = new List<Item>();
     public delegate void ItemChange();
     public ItemChange ItemChangeCallback;

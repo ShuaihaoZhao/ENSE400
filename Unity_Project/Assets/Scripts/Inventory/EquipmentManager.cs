@@ -107,22 +107,5 @@ public class EquipmentManager : MonoBehaviour {
                 }
             }
         }
-        /*
-        for (int i = 0; i < index; i++)//check all equipment position
-        {
-            if (currentEquipment[i] != null)
-            {
-                string equipmentName = currentEquipment[i].name;
-                for (int j = 0; j < player_weapons.Length; j++)//check different weapon states
-                {
-                    player_weapons[j].SetActive(false);
-                    if (player_weapons[j].name == equipmentName)
-                    {
-                        player_weapons[j].SetActive(true);
-                    }
-                }
-
-            }
-        }*/
     }
 }

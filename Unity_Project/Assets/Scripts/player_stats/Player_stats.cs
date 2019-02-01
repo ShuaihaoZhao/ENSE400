@@ -31,8 +31,8 @@ public class Player_stats : Health {
 
         if (olditem != null)
         {
-            armor.Add_modifier(olditem.armor);
-            damage.Add_modifier(olditem.damage);
+            armor.Remove_modifier(olditem.armor);
+            damage.Remove_modifier(olditem.damage);
         }
     }
 

@@ -18,7 +18,7 @@ public class Player_stats : Health {
     {
         m_animator = GetComponent<Animator>();
         EquipmentManager.instance.changeEquipment += changeEquipment;
-    
+
     }
 
     void changeEquipment(Equipment newitem, Equipment olditem)
@@ -67,6 +67,10 @@ public class Player_stats : Health {
         }
     }
 
+    public int damage_value()
+    {
+        return damage.GetValue();
+    }
     public virtual void Die()
     {
         m_animator.SetBool("k_death", true);

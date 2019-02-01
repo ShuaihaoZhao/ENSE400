@@ -10,6 +10,8 @@ public class DamageDetection : MonoBehaviour
     private float tempTime = 0f;
     private string message;
 
+    int get_damage=0;
+
     private Animator m_animator;
     // Use this for initialization
     void Start()
@@ -55,7 +57,8 @@ public class DamageDetection : MonoBehaviour
 
         if ((Time.time - tempTime) > cd2 && other.gameObject.tag == "Enemy")
         {
-            Debug.Log(transform.gameObject.name);
+
+            //Debug.Log(transform.gameObject.name);
             if (transform.gameObject.name == "Maria_sword")
             {
                 return;
@@ -82,14 +85,9 @@ public class DamageDetection : MonoBehaviour
                 StartCoroutine("Message_hurt");
             }
 
-            if (transform.gameObject.name == "Halberd_A")
-            {
-                other.gameObject.GetComponentInParent<Health>().adjHealth(-4);
-            }
-            else
-            {
-                other.gameObject.GetComponentInParent<Health>().adjHealth(-1);
-            }
+            get_damage = transform.gameObject.GetComponentInParent<Player_stats>().damage_value();
+            other.gameObject.GetComponentInParent<Health>().adjHealth(-get_damage);
+
             tempTime = Time.time;
         }
 

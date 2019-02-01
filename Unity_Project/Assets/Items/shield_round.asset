@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: shield_round
   m_EditorClassIdentifier: 
   item_name: shield_round
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: cad7ca98aef51c240a32ecb2d4c7d66f, type: 3}
   isDefautItem: 0
   damage: 0
   armor: 10

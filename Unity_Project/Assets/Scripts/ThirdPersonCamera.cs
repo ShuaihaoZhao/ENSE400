@@ -9,10 +9,12 @@ public class ThirdPersonCamera : MonoBehaviour {
     public float distance = 3;
     public Transform target;//main character
 
+
     float mouse_x, mouse_y;//mouse based up and down
     private Vector2 minMax = new Vector2(10, 45);// set the suitable value
 
     float rotationSmooth = 0.2f;
+    private RaycastHit hit;//define a ray
 
     //used for the smoothDamp function
     Vector3 currentVelocity;
@@ -34,6 +36,10 @@ public class ThirdPersonCamera : MonoBehaviour {
 
     void Update_camera()
     {
+        if (Physics.Linecast(target.position + Vector3.up, transform.position, out hit))//check whether the camera cross something
+        {
+            Debug.Log("Collistion!!!");
+        }
         mouse_x += Input.GetAxis("Mouse X") * mouse_sensitivity;
         mouse_y -= Input.GetAxis("Mouse Y") * mouse_sensitivity;
 

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ThirdPersonCamera : MonoBehaviour {
 
-    public float mouse_sensitivity=10f;
+    public float mouse_sensitivity=2f;
     public float distance = 3;
     public Transform target;//main character
 

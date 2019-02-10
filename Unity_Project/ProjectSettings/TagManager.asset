@@ -9,6 +9,7 @@ TagManager:
   - Item1
   - Kn_w
   - Kn_s
+  - Terrain_t
   layers:
   - Default
   - TransparentFX

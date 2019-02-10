@@ -5,13 +5,13 @@ using UnityEngine.EventSystems;
 
 public class ThirdPersonCamera : MonoBehaviour {
 
-    public float mouse_sensitivity=2f;
+    public float mouse_sensitivity=4f;
     public float distance = 3;
     public Transform target;//main character
 
 
     float mouse_x, mouse_y;//mouse based up and down
-    private Vector2 minMax = new Vector2(10, 45);// set the suitable value
+    private Vector2 minMax = new Vector2(0, 45);// set the suitable value
 
     float rotationSmooth = 0.2f;
     private RaycastHit hit;//define a ray
@@ -26,7 +26,7 @@ public class ThirdPersonCamera : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void FixedUpdate () {
 
         if (EventSystem.current.IsPointerOverGameObject())
             return;
@@ -38,16 +38,19 @@ public class ThirdPersonCamera : MonoBehaviour {
     {
         if (Physics.Linecast(target.position + Vector3.up, transform.position, out hit))//check whether the camera cross something
         {
-            Debug.Log("Collistion!!!");
-            transform.position = hit.point;
-            distance = Vector3.Distance(target.position, transform.position);//set new distance
+            if (hit.collider.CompareTag("Terrain_t"))
+            {
+                //Debug.Log("Collistion!!!");
+                transform.position = hit.point;
+                distance = Vector3.Distance(target.position, transform.position);//set new distance
+            }
             //return;
         }
         else
         {
             if (distance < 3)
             {
-                distance = Vector3.Distance(target.position, transform.position) + Time.deltaTime;
+                distance = Vector3.Distance(target.position, transform.position) + Time.deltaTime;//update the distance
             }
         }
         mouse_x += Input.GetAxis("Mouse X") * mouse_sensitivity;

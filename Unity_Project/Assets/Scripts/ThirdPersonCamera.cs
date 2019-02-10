@@ -39,18 +39,26 @@ public class ThirdPersonCamera : MonoBehaviour {
         if (Physics.Linecast(target.position + Vector3.up, transform.position, out hit))//check whether the camera cross something
         {
             Debug.Log("Collistion!!!");
+            transform.position = hit.point;
+            distance = Vector3.Distance(target.position, transform.position);//set new distance
+            //return;
+        }
+        else
+        {
+            if (distance < 3)
+            {
+                distance = Vector3.Distance(target.position, transform.position) + Time.deltaTime;
+            }
         }
         mouse_x += Input.GetAxis("Mouse X") * mouse_sensitivity;
         mouse_y -= Input.GetAxis("Mouse Y") * mouse_sensitivity;
 
         mouse_y = Mathf.Clamp(mouse_y, minMax.x, minMax.y);
-        /*
-        if (Input.GetMouseButton(1))
-        {*/
+      
         currntRotation = Vector3.SmoothDamp(currntRotation, new Vector3(mouse_y, mouse_x), ref currentVelocity, rotationSmooth);
 
         transform.eulerAngles = currntRotation;
-        // }
+        
         transform.position = target.position - transform.forward * distance;
     }
 }

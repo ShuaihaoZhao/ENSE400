@@ -10,6 +10,7 @@ TagManager:
   - Kn_w
   - Kn_s
   - Terrain_t
+  - part1_wall
   layers:
   - Default
   - TransparentFX

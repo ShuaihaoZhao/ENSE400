@@ -1,17 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfc0cbf13e003fd4cb3f38a6f90b7b1d, type: 3}
-  m_Name: BuffBottle
-  m_EditorClassIdentifier: 
-  item_name: small_buff_bottle
-  image: {fileID: 21300000, guid: 629a73ab0c99c404c9beb04cf6c4729b, type: 3}
-  isDefautItem: 0
-  buff_value: 10
+version https://git-lfs.github.com/spec/v1
+oid sha256:006099884a1f48fb2db17d4a3812d175f88232610b661f6d1857697a3189a181
+size 530

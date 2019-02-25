@@ -1,19 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da564f7c1ab13346a1e0e85b7861522, type: 3}
-  m_Name: Sword_2
-  m_EditorClassIdentifier: 
-  item_name: Sword_2
-  image: {fileID: 21300000, guid: 1421ade9335c7c64d87878806047ff48, type: 3}
-  isDefautItem: 0
-  damage: 5
-  armor: 0
-  position: 0
+version https://git-lfs.github.com/spec/v1
+oid sha256:a65635aab4855da57689274f271d4cd8b0f8f266025de89441070c8e05a3d4eb
+size 539

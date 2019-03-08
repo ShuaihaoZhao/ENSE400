@@ -9,18 +9,23 @@ public class DialogueManager : MonoBehaviour {
     public Text dialogueText;
 
     public Animator animator;
+    private GameObject knight_target;
+
+    private Dialogue temp_dia;
 
     private Queue<string> sentences;
 
 	// Use this for initialization
 	void Start () {
+        
+        knight_target = GameObject.FindGameObjectWithTag("Kn");
         sentences = new Queue<string>();
 
 	}
 	
 	public void StartDialogue(Dialogue dialogue)
     {
-
+        temp_dia = dialogue;//copy the class value
         animator.SetBool("IsOpen", true);
 
         nameText.text = dialogue.name;
@@ -65,5 +70,11 @@ public class DialogueManager : MonoBehaviour {
     {
         animator.SetBool("IsOpen", false);
 
+        if (temp_dia.GetType() == "B" && temp_dia.Get_Dialogue_condition()== true)
+        {
+            knight_target.GetComponent<Player_stats>().Heal(10);
+        }
+
+        temp_dia.Set_Dialogue_condition(false);
     }
 }

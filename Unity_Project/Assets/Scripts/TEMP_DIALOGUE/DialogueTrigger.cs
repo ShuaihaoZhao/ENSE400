@@ -15,7 +15,7 @@ public class DialogueTrigger : MonoBehaviour {
     private void Update()
     {
         //Debug.Log(Vector3.Distance(transform.position, knight.transform.position));
-        if (Vector3.Distance(transform.position, knight.transform.position) <= 10f && Input.GetKeyDown(KeyCode.F))
+        if (Vector3.Distance(transform.position, knight.transform.position) <= 2f && Input.GetKeyDown(KeyCode.F))
         {
             TriggerDialouge();
         }

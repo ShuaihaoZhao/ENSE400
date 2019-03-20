@@ -24,7 +24,7 @@ public class Falling_area : MonoBehaviour
     {
         for (int i = 0; i < 8; i++)
         {
-            Debug.Log("Rock");
+            //Debug.Log("Rock");
             Instantiate(rock, new Vector3(Random.Range(210, 240), 60f, Random.Range(1410, 1430)), Quaternion.identity);
         }
     }

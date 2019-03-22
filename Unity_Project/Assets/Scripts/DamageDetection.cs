@@ -44,7 +44,7 @@ public class DamageDetection : MonoBehaviour
                 }
             }
 
-            if (transform.gameObject.tag == "Kn_w" || transform.gameObject.name == "Paladin_J_Nordstrom_Sword")
+            if (transform.gameObject.tag == "Kn_w" || transform.gameObject.name == "Man_01")
                 {
                     return;
                 }

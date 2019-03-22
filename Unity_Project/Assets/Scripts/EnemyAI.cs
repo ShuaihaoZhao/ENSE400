@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour {
 
         enemy_animator.SetBool("e_death", false);
         target = go.transform;
-        maxDistance = 1.5f;
+        maxDistance = 2f;
         enemy_cc = GetComponent<CharacterController>();
 
     }
@@ -66,6 +66,7 @@ public class EnemyAI : MonoBehaviour {
 
                     //enemy_rig.MovePosition(pos);
                     enemy_cc.Move(v * Time.deltaTime);*/
+                    Debug.Log(Vector3.Distance(target.position, transform.position));
                     navMeshAgent_enemy.SetDestination(target.transform.position);
                     //Debug.Log(Vector3.Distance(target.position, transform.position));
                     if (enemy_cc.isGrounded)

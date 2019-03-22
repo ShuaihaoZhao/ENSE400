@@ -66,7 +66,7 @@ public class EnemyAI : MonoBehaviour {
 
                     //enemy_rig.MovePosition(pos);
                     enemy_cc.Move(v * Time.deltaTime);*/
-                    Debug.Log(Vector3.Distance(target.position, transform.position));
+                    //Debug.Log(Vector3.Distance(target.position, transform.position));
                     navMeshAgent_enemy.SetDestination(target.transform.position);
                     //Debug.Log(Vector3.Distance(target.position, transform.position));
                     if (enemy_cc.isGrounded)

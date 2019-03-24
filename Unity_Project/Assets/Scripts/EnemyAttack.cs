@@ -8,6 +8,7 @@ public class EnemyAttack : MonoBehaviour {
     private Animator enemy_animator;
     private AnimatorStateInfo enemy_animSta;
     private Health m_heath;
+    public GameObject arrow;
 
     public float attackTimer;
     public float attackHitTimer;
@@ -49,14 +50,19 @@ public class EnemyAttack : MonoBehaviour {
             enemy_animator.SetBool("e_attack", false);
 
         }
-        if (attackTimer == 0 && distance<10)
+        if (attackTimer == 0 && distance<15)
         {
             enemy_animator.SetBool("e_attack", true);
+            if (transform.gameObject.name == "Man_04")
+            {
+                GameObject a=Instantiate(arrow, new Vector3(transform.position.x, transform.position.y+1.3f,transform.position.z) +transform.forward, Quaternion.Euler(0,0,-90));
+                a.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Impulse);
+            }
+            
             attackTimer = coolDown;
             hitNum = 1;
         }
 
-        
         /*
         if (hitNum == 1)
         {

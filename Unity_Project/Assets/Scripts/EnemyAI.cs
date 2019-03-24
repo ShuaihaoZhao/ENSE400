@@ -31,7 +31,7 @@ public class EnemyAI : MonoBehaviour {
     void Start()
     {
         GameObject go = GameObject.FindGameObjectWithTag("Kn");
-        enemy_list = GameObject.FindGameObjectWithTag("Kn").GetComponent<Target>();
+        //enemy_list = GameObject.FindGameObjectWithTag("Kn").GetComponent<Target>();
         enemy_animator = gameObject.GetComponent<Animator>();
         enemy_rig = GetComponent<Rigidbody>();
 
@@ -45,6 +45,7 @@ public class EnemyAI : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(transform.gameObject.name);
         Health h = myTransform.gameObject.GetComponent<Health>();
         if (h.GetCurrentHealth() != 0)
         {
@@ -53,7 +54,20 @@ public class EnemyAI : MonoBehaviour {
             /*myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
              Quaternion.LookRotation(target.position - myTransform.position), rotationSpeed * Time.deltaTime);
              */
-            if (Vector3.Distance(target.position, transform.position) > maxDistance && Vector3.Distance(target.position, transform.position)<10)
+            if (transform.gameObject.name == "Man_04" &&
+               Vector3.Distance(target.position, transform.position) > 10 &&
+               Vector3.Distance(target.position, transform.position) < 20)
+            {
+
+                if (enemy_animator.GetBool("e_attack") == false && enemy_animator.GetBool("e_hurt") == false)
+                {
+                    enemy_animator.SetBool("e_walk", true);
+                    navMeshAgent_enemy.SetDestination(target.transform.position);
+                }
+            }
+            else if (transform.gameObject.name != "Man_04" && 
+                Vector3.Distance(target.position, transform.position) > maxDistance &&
+                Vector3.Distance(target.position, transform.position)<10)
             {
                 if (enemy_animator.GetBool("e_attack") == false && enemy_animator.GetBool("e_hurt") == false)
                 {
@@ -69,10 +83,7 @@ public class EnemyAI : MonoBehaviour {
                     //Debug.Log(Vector3.Distance(target.position, transform.position));
                     navMeshAgent_enemy.SetDestination(target.transform.position);
                     //Debug.Log(Vector3.Distance(target.position, transform.position));
-                    if (enemy_cc.isGrounded)
-                    {
-                        v_y = 0;
-                    }
+ 
                 }
             }
             else
@@ -114,9 +125,9 @@ public class EnemyAI : MonoBehaviour {
         if (myTransform.gameObject.GetComponent<EnemyAI>().GetDeath() == "death")
         {
 
-            Vector3 pos = new Vector3(myTransform.position.x, 0.3f, myTransform.position.z);
+            Vector3 pos = new Vector3(myTransform.position.x, myTransform.position.y+0.4f, myTransform.position.z);
           
-            enemy_list.targets.Remove(myTransform);
+            //enemy_list.targets.Remove(myTransform);
             if (Random.Range(1, 5) >= 0.1)
             {
                 GameObject.Instantiate(item, pos, Quaternion.identity);

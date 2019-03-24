@@ -33,7 +33,7 @@ public class DamageDetection : MonoBehaviour
         {
                 // Debug.Log("test2: "+transform.gameObject.name);
 
-            if (transform.gameObject.name == "Maria_sword")
+            if (transform.gameObject.name == "Geo_Sword")
             {
                 int enemy_attack_number = transform.gameObject.GetComponentInParent<EnemyAttack>().Enemy_HitNum();
                 //Debug.Log(enemy_attack_number);
@@ -44,7 +44,7 @@ public class DamageDetection : MonoBehaviour
                 }
             }
 
-            if (transform.gameObject.tag == "Kn_w" || transform.gameObject.name == "Man_01")
+            if (transform.gameObject.tag == "Kn_w" || transform.gameObject.tag == "enemy")
                 {
                     return;
                 }
@@ -59,7 +59,7 @@ public class DamageDetection : MonoBehaviour
         {
 
             //Debug.Log(transform.gameObject.name);
-            if (transform.gameObject.name == "Maria_sword")
+            if (transform.gameObject.name == "Geo_Sword")
             {
                 return;
             }

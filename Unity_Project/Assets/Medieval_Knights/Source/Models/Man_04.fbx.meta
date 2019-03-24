@@ -184,7 +184,17 @@ ModelImporter:
     13700008: Body
     13700010: Carcaj 1
     13700012: Leather
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Man_04_M
+    second: {fileID: 2100000, guid: b54a0621386eeb443b6026060d78227c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Man_04_Man_04_M
+    second: {fileID: 2100000, guid: 86c94272ab402bb47a2a88629877227d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

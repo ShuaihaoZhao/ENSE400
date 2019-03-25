@@ -50,7 +50,7 @@ public class EnemyAttack : MonoBehaviour {
             enemy_animator.SetBool("e_attack", false);
 
         }
-        if (attackTimer == 0 && distance<15)
+        if (attackTimer == 0 && distance<12)
         {
             enemy_animator.SetBool("e_attack", true);
             if (transform.gameObject.name == "Man_04")

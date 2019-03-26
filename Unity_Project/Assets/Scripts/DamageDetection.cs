@@ -6,7 +6,7 @@ public class DamageDetection : MonoBehaviour
 {
 
     private float cd1 = 1f;
-    private float cd2 = 0.5f;
+    private float cd2 = 0.3f;
     private float tempTime = 0f;
     private string message;
 
@@ -31,7 +31,7 @@ public class DamageDetection : MonoBehaviour
 
         if ((Time.time - tempTime) > cd1 && other.gameObject.name == "Knight_T_Pose")//enemy attack
         {
-                // Debug.Log("test2: "+transform.gameObject.name);
+               Debug.Log("test2: "+transform.gameObject.name);
 
             if (transform.gameObject.name == "Geo_Sword")
             {
@@ -59,12 +59,13 @@ public class DamageDetection : MonoBehaviour
         {
 
             //Debug.Log(transform.gameObject.name);
-            if (transform.gameObject.name == "Geo_Sword")
+            if (transform.gameObject.name == "Geo_Sword" || transform.gameObject.name == "sword01"
+                || transform.gameObject.name == "shield_heater01")
             {
                 return;
             }
             if (transform.gameObject.name == "Paladin_J_Nordstrom_Sword" || transform.gameObject.name == "Halberd_A"
-                || transform.gameObject.name == "Sword_2")
+                || transform.gameObject.name == "Sword_2" )
             {
                 int attack_number = transform.gameObject.GetComponentInParent<Attack>().GetHit();
                 if (attack_number == 0)

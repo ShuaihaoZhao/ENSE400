@@ -19,20 +19,7 @@ public class Health : MonoBehaviour
     {
 
     }
-    /*
-    public int return_value(int value)
-    {
-        if (value < 0)
-        {
-            GameObject.Instantiate(blood, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
-        }
-        else if (value > 0)
-        {
-            GameObject.Instantiate(healBuff, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.Euler(-90, 0, 0));
-        }
-        return value;
-    }
-    */
+
     public void Damage_animation()
     {
         GameObject.Instantiate(blood, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);

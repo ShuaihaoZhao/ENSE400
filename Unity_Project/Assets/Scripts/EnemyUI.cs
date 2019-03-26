@@ -8,14 +8,21 @@ public class EnemyUI : MonoBehaviour
     public Camera main_camera;
     public float maxValue = 10;
     private Health e_health;
+    private Boss_health b_health;
     //public Transform target;
     public Image eh;
 
     // Use this for initialization
     void Start()
     {
-
-        e_health = this.gameObject.GetComponentInParent<Health>();
+        if (transform.name == "Dismounted_Knight_Prefab")
+        {
+            e_health = this.gameObject.GetComponentInParent<Boss_health>();
+        }
+        else
+        {
+            e_health = this.gameObject.GetComponentInParent<Health>();
+        }
 
     }
 

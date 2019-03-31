@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PauseManu : MonoBehaviour {
 
     public static bool gamePauseVar = false;
     public GameObject PauseManuUI;
+    public AudioMixer vol;
 	
 	// Update is called once per frame
 	void Update () {
@@ -13,10 +15,12 @@ public class PauseManu : MonoBehaviour {
         {
             if (gamePauseVar)
             {
+                
                 Resume();
             }
             else
             {
+                
                 Pause();
             }
         }
@@ -38,6 +42,17 @@ public class PauseManu : MonoBehaviour {
         gamePauseVar = true;
     }
 
+    public void Option()
+    {
+        PauseManuUI.SetActive(true);
+        Time.timeScale = 0f;
+        gamePauseVar = true;
+    }
+
+    public void SetVolume(float volume)
+    {
+        vol.SetFloat("volume", volume);
+    }
     public void QuitGame()
     {
         Application.Quit();

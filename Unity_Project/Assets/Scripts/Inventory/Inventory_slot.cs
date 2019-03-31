@@ -6,9 +6,10 @@ public class Inventory_slot : MonoBehaviour {
     Item item;
     public Image icon;
     public Button deleteButton;
+    public Sprite temp;
     // Use this for initialization
 
-
+    
     public void AddItem(Item newitem)
     {
         item = newitem;
@@ -20,8 +21,8 @@ public class Inventory_slot : MonoBehaviour {
     public void ClearItem()
     {
         item = null;
-        icon.sprite = null;
-        icon.enabled = false;
+        icon.sprite = temp;
+        icon.enabled = true;
         deleteButton.interactable = true;
     }
 

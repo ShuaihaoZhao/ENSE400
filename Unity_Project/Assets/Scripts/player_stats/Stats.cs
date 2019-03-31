@@ -40,4 +40,9 @@ public class Stats{
             modifier.Remove(value);
         }
     }
+
+    public void Add_bottle_value(int temp)
+    {
+        value += temp;
+    }
 }

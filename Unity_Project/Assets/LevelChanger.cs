@@ -7,13 +7,11 @@ public class LevelChanger : MonoBehaviour
 {
     public Animator over;
     private int Scene_index;
+    
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Change(0);
-        }
+
     }
 
     public void Change(int levelIndex)
@@ -25,5 +23,15 @@ public class LevelChanger : MonoBehaviour
     public void Complete()
     {
         SceneManager.LoadScene(Scene_index);
+    }
+
+    public void Back_To_Main()
+    {
+        Change(0);
+    }
+
+    public void Go_To_Gameover()
+    {
+        Change(2);
     }
 }

@@ -7,6 +7,7 @@ public class Player_stats : Health {
     private Animator m_animator;
     public Stats damage;
     public Stats armor;
+    public GameObject switch_scene;
 
     public void Awake()
     {
@@ -89,6 +90,8 @@ public class Player_stats : Health {
     {
         m_animator.SetBool("k_death", true);
         Debug.Log("death");
+        switch_scene.GetComponent<LevelChanger>().Go_To_Gameover();
+
     }
 
 

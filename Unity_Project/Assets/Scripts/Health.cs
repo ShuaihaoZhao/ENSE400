@@ -6,6 +6,12 @@ public class Health : MonoBehaviour
 {
     public GameObject blood;
     public GameObject healBuff;
+
+    public GameObject strength;
+    public GameObject shield;
+    public GameObject unloack;
+
+
     public int currentHealth = 10;
     public int maxHealth = 10;
     // Use this for initialization
@@ -20,6 +26,22 @@ public class Health : MonoBehaviour
 
     }
 
+    public void Str_animation()
+    {
+        GameObject.Instantiate(strength, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+    }
+
+    public void Shi_animation()
+    {
+        GameObject.Instantiate(shield, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+    }
+
+    public void Unl_animation()
+    {
+        GameObject.Instantiate(unloack, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.Euler(-90,0,0));
+    }
+
+
     public void Damage_animation()
     {
         GameObject.Instantiate(blood, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
@@ -29,6 +51,8 @@ public class Health : MonoBehaviour
     {
         GameObject.Instantiate(healBuff, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.Euler(-90, 0, 0));
     }
+
+
 
     public void adjHealth(int adj)
     {

@@ -69,6 +69,7 @@ public class Attack : MonoBehaviour {
     public void Unloack_attack()
     {
         attack_lock = true;
+        transform.GetComponent<Player_stats>().Unl_animation();
     }
     
 }

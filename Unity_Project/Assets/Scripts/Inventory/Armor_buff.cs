@@ -12,6 +12,7 @@ public class Armor_buff : Item
         base.UseItem();
         GameObject character = GameObject.FindGameObjectWithTag("Kn");
 
+        character.GetComponent<Player_stats>().Shi_animation();
         character.GetComponent<Player_stats>().armor.Add_bottle_value(armor_value);
         Remove();
     }

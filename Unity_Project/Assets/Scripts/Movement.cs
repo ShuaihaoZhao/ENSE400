@@ -66,30 +66,36 @@ public class Movement : MonoBehaviour {
 
     private void Update()
     {
-        GetInput();
-        if (forwardInput != 0 || turnInput != 0 || jumpInput != 0)
+        if (m_animator.GetBool("k_death") == false)
         {
-            transform.eulerAngles=Vector3.up* Mathf.SmoothDampAngle(transform.eulerAngles.y, camera_transform.eulerAngles.y, ref currentVelocity, rotationSmooth);
-            //transform.eulerAngles = new Vector3(0, camera_transform.eulerAngles.y, 0);
+            GetInput();
+            if (forwardInput != 0 || turnInput != 0 || jumpInput != 0)
+            {
+                transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, camera_transform.eulerAngles.y, ref currentVelocity, rotationSmooth);
+                //transform.eulerAngles = new Vector3(0, camera_transform.eulerAngles.y, 0);
+            }
         }
 
     }
 
     private void FixedUpdate()
     {
-        Run();
-        Jump();
-
-        moveSettings.velocityY += Time.deltaTime * physSettings.gravity;
-
-        velocity.y = moveSettings.velocityY;
-        velocity = transform.TransformDirection(velocity);
-        controller.Move(velocity*Time.deltaTime);
-
-        if (controller.isGrounded)
+        if (m_animator.GetBool("k_death") == false)
         {
-            m_animator.SetBool("k_jump", false);
-            moveSettings.velocityY =0;
+            Run();
+            Jump();
+
+            moveSettings.velocityY += Time.deltaTime * physSettings.gravity;
+
+            velocity.y = moveSettings.velocityY;
+            velocity = transform.TransformDirection(velocity);
+            controller.Move(velocity * Time.deltaTime);
+
+            if (controller.isGrounded)
+            {
+                m_animator.SetBool("k_jump", false);
+                moveSettings.velocityY = 0;
+            }
         }
 
     }
@@ -108,7 +114,7 @@ public class Movement : MonoBehaviour {
 
         m_animator.SetFloat("BlendY", forwardInput);//***
         m_animator.SetFloat("BlendX", turnInput);
-        m_animator.SetBool("k_death", false);
+        //m_animator.SetBool("k_death", false);
 
     }
     /// <summary>

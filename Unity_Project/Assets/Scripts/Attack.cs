@@ -8,6 +8,7 @@ public class Attack : MonoBehaviour {
 
     private Animator m_animator;
     private AnimatorStateInfo animSta;
+    private bool attack_lock;
 
     private const string BLENDTREE = "Blend Tree";
     private const string ATTACK1 = "attack1";
@@ -23,6 +24,7 @@ public class Attack : MonoBehaviour {
     void Start()
     {
         m_animator = GetComponent<Animator>();
+        attack_lock = false;
     }
 
     // Update is called once per frame
@@ -35,15 +37,13 @@ public class Attack : MonoBehaviour {
             m_animator.SetInteger("attack_level", 0);
             hitCount = 0;
         }
-        /*
-        if (Input.GetMouseButton(1) && target!=null)
-        {
-            MyAttack();
-        }*/
 
-        if(Input.GetMouseButton(1))// && target == null)
+        if (m_animator.GetBool("k_death") == false)
         {
-            AttackAnimation();
+            if (Input.GetMouseButton(1))// && target == null)
+            {
+                AttackAnimation();
+            }
         }
     }
 
@@ -54,63 +54,21 @@ public class Attack : MonoBehaviour {
             m_animator.SetInteger("attack_level", 1);
             hitCount = 1;
         }
-        else if (animSta.IsName(ATTACK1) && hitCount == 1 && animSta.normalizedTime > 0.6f)
+        else if (animSta.IsName(ATTACK1) && hitCount == 1 && animSta.normalizedTime > 0.6f && attack_lock==true)
         {
             m_animator.SetInteger("attack_level", 2);
             hitCount = 2;
         }
-        else if (animSta.IsName(ATTACK2) && hitCount == 2 && animSta.normalizedTime > 0.8f)
+        else if (animSta.IsName(ATTACK2) && hitCount == 2 && animSta.normalizedTime > 0.8f && attack_lock == true)
         {
             m_animator.SetInteger("attack_level", 3);
             hitCount = 3;
         }
+    }
+
+    public void Unloack_attack()
+    {
+        attack_lock = true;
     }
     
-    private void MyAttack()
-    {
-        float distance = Vector3.Distance(target.transform.position, transform.position);
-
-        //1 magnitude
-        Vector3 dir = (target.transform.position - transform.position).normalized;
-
-        // dir ->projection to transform.forward
-        float direction = Vector3.Dot(dir, transform.forward);
-
-
-        if (animSta.IsName(BLENDTREE) && hitCount == 0 && animSta.normalizedTime > 0.5f)
-        {
-            m_animator.SetInteger("attack_level", 1);
-            hitCount = 1;
-            /*
-            if (direction > 0 && distance<2f)
-            {
-                Health eh = target.GetComponent<Health>();
-                eh.adjHealth(-1);
-            }*/
-        }
-        else if (animSta.IsName(ATTACK1) && hitCount == 1 && animSta.normalizedTime > 0.6f)
-        {
-            m_animator.SetInteger("attack_level", 2);
-            hitCount = 2;
-            /*
-            if (direction > 0 && distance < 2f)
-            {
-                Health eh = target.GetComponent<Health>();
-                eh.adjHealth(-2);
-            }*/
-        }
-        else if (animSta.IsName(ATTACK2) && hitCount == 2 && animSta.normalizedTime > 0.8f)
-        {
-            m_animator.SetInteger("attack_level", 3);
-            hitCount = 3;
-            /*
-            if (direction > 0 && distance < 2f)
-            {
-                Health eh = target.GetComponent<Health>();
-                eh.adjHealth(-3);
-            }*/
-
-        }
-
-    }
 }

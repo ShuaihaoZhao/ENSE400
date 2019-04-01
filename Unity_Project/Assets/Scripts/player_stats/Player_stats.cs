@@ -12,13 +12,25 @@ public class Player_stats : Health {
     {
         maxHealth = 100;
         currentHealth = maxHealth;
+        
     }
 
     public void Start()
     {
         m_animator = GetComponent<Animator>();
         EquipmentManager.instance.changeEquipment += changeEquipment;
+        m_animator.SetBool("k_death", false);
 
+    }
+
+    private void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            Debug.Log("test death");
+            currentHealth = 0;
+            Die();
+        }
     }
 
     void changeEquipment(Equipment newitem, Equipment olditem)
@@ -48,9 +60,10 @@ public class Player_stats : Health {
         }
 
         currentHealth -= damage_value;
-
+        Debug.Log("test death "+ currentHealth);
         if (currentHealth <= 0)
         {
+            Debug.Log("test death");
             currentHealth = 0;
             Die();
         }
@@ -71,9 +84,10 @@ public class Player_stats : Health {
     {
         return damage.GetValue();
     }
-    public virtual void Die()
+    public void Die()
     {
         m_animator.SetBool("k_death", true);
+        Debug.Log("death");
     }
 
 

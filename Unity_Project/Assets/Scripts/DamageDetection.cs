@@ -44,7 +44,8 @@ public class DamageDetection : MonoBehaviour
                 }
             }
 
-            if (transform.gameObject.tag == "Kn_w" || transform.gameObject.tag == "enemy")
+            if (transform.gameObject.tag == "Kn_w" || transform.gameObject.tag == "enemy" 
+                || transform.gameObject.tag == "Kn_s")
                 {
                     return;
                 }
@@ -55,7 +56,7 @@ public class DamageDetection : MonoBehaviour
             tempTime = Time.time;
         }
 
-        if ((Time.time - tempTime) > cd2 && other.gameObject.tag == "Enemy")
+        if ((Time.time - tempTime) > cd2 && other.gameObject.tag == "Enemy")//knight attack
         {
 
             //Debug.Log(transform.gameObject.name);
@@ -65,7 +66,8 @@ public class DamageDetection : MonoBehaviour
                 return;
             }
             if (transform.gameObject.name == "Paladin_J_Nordstrom_Sword" || transform.gameObject.name == "Halberd_A"
-                || transform.gameObject.name == "Sword_2" )
+                || transform.gameObject.name == "Sword_2" || transform.gameObject.name == "Paladin_J_Nordstrom_Shield" ||
+                transform.gameObject.name == "shield_round" || transform.gameObject.name == "shield_monster")
             {
                 int attack_number = transform.gameObject.GetComponentInParent<Attack>().GetHit();
                 if (attack_number == 0)
@@ -86,6 +88,10 @@ public class DamageDetection : MonoBehaviour
                 StartCoroutine("Message_hurt");
             }
 
+            if (transform.tag == "Kn_s")
+            {
+                Debug.Log(transform.gameObject.name);
+            }
             get_damage = transform.gameObject.GetComponentInParent<Player_stats>().damage_value();
             other.gameObject.GetComponentInParent<Health>().adjHealth(-get_damage);
 

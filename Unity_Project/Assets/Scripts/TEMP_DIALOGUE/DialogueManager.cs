@@ -75,6 +75,11 @@ public class DialogueManager : MonoBehaviour {
             knight_target.GetComponent<Player_stats>().Heal(10);
         }
 
+        if (temp_dia.GetType() == "G" && temp_dia.Get_Dialogue_condition() == true)
+        {
+            knight_target.GetComponent<Attack>().Unloack_attack();
+        }
+
         temp_dia.Set_Dialogue_condition(false);
     }
 }

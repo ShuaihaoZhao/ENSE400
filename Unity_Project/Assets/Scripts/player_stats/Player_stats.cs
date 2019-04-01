@@ -84,6 +84,7 @@ public class Player_stats : Health {
     {
         return damage.GetValue();
     }
+
     public void Die()
     {
         m_animator.SetBool("k_death", true);

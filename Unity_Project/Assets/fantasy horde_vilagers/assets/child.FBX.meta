@@ -161,12 +161,27 @@ ModelImporter:
     13700008: villager_child_girl
     100100000: DataTemplate __Singleton__
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02 - Default
+    second: {fileID: 2100000, guid: d397f26448f282342a462f8548d2ac49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: be58bdc3792e6b74f8828fa5429fd78a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: child
+    second: {fileID: 2100000, guid: a8e1a5007e7744949b095e7da8dbb673, type: 2}
   materials:
-    importMaterials: 0
-    materialName: 0
+    importMaterials: 1
+    materialName: 2
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

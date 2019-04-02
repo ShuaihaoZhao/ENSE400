@@ -11,7 +11,7 @@ public class Dialogue {
     public string type;
     public bool conver_condition;
 
-    public string GetType()
+    public string Get_Type()
     {
         return type;
     }

@@ -24,6 +24,7 @@ public class EquipmentManager : MonoBehaviour {
     private void Start()
     {
         index = System.Enum.GetNames(typeof(Equip_position)).Length;
+        Debug.Log(index);
         currentEquipment = new Equipment[index];//initial all position in a arrays
         player_weapons = GameObject.FindGameObjectsWithTag("Kn_w");
         player_shields = GameObject.FindGameObjectsWithTag("Kn_s");
@@ -55,6 +56,7 @@ public class EquipmentManager : MonoBehaviour {
     public void Equip(Equipment newEquipment)
     {
         int equipemt_index_numer = (int)newEquipment.position;//different position index number
+        string name = newEquipment.name;
         Equipment oldEquipment = null;
 
         if (currentEquipment[equipemt_index_numer] == null)
@@ -71,13 +73,15 @@ public class EquipmentManager : MonoBehaviour {
         {
             changeEquipment.Invoke(newEquipment,oldEquipment);
         }
-        Update_newEquipment(equipemt_index_numer);
+        Update_newEquipment(equipemt_index_numer,name);
 
     }
 
-    public void Update_newEquipment(int position_index)
+    public void Update_newEquipment(int position_index,string name)
     {
-        string equipmentName = currentEquipment[position_index].name;
+        string equipmentName = name;
+        Debug.Log("This is :" + equipmentName);
+            //currentEquipment[position_index].name;
 
         if (position_index == 0)
         {

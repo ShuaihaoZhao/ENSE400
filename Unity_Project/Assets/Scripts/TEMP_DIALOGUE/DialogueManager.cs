@@ -11,6 +11,11 @@ public class DialogueManager : MonoBehaviour {
     public Animator animator;
     private GameObject knight_target;
 
+    public Item heal_bottle;
+    public Item strength_bottle;
+    public Item armor_bottle;
+    public Equipment weapon;
+
     private Dialogue temp_dia;
 
     private Queue<string> sentences;
@@ -68,16 +73,38 @@ public class DialogueManager : MonoBehaviour {
 
     void EndDialogue()
     {
+        Debug.Log(temp_dia.Get_Type());
         animator.SetBool("IsOpen", false);
 
-        if (temp_dia.GetType() == "B" && temp_dia.Get_Dialogue_condition()== true)
+        if (temp_dia.Get_Type() == "B" && temp_dia.Get_Dialogue_condition()== true)
         {
             knight_target.GetComponent<Player_stats>().Heal(10);
         }
 
-        if (temp_dia.GetType() == "G" && temp_dia.Get_Dialogue_condition() == true)
+        if (temp_dia.Get_Type() == "G" && temp_dia.Get_Dialogue_condition() == true)
         {
             knight_target.GetComponent<Attack>().Unloack_attack();
+        }
+
+        if (temp_dia.Get_Type() == "Q" && temp_dia.Get_Dialogue_condition() == true)
+        {
+            Inventory.instance.Add(heal_bottle);
+        }
+
+        if (temp_dia.Get_Type() == "W" && temp_dia.Get_Dialogue_condition() == true)
+        {
+            Inventory.instance.Add(strength_bottle);
+        }
+
+        if (temp_dia.Get_Type() == "R" && temp_dia.Get_Dialogue_condition() == true)
+        {
+            Inventory.instance.Add(armor_bottle);
+        }
+
+        if (temp_dia.Get_Type() == "T" && temp_dia.Get_Dialogue_condition() == true)
+        {
+            Debug.Log(temp_dia.GetType());
+            Inventory.instance.Add(weapon);
         }
 
         temp_dia.Set_Dialogue_condition(false);

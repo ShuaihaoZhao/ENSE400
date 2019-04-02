@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour {
 
         enemy_animator.SetBool("e_death", false);
         target = go.transform;
-        maxDistance = 2f;
+        maxDistance = 1.5f;
         enemy_cc = GetComponent<CharacterController>();
 
     }

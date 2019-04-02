@@ -28,74 +28,83 @@ public class DamageDetection : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("test: "+other.gameObject.name);
-
-        if ((Time.time - tempTime) > cd1 && other.gameObject.name == "Knight_T_Pose")//enemy attack
+        if (transform.gameObject.tag != "kn_w" && transform.gameObject.tag != "kn_s"
+            && transform.gameObject.tag != "kn_temp")//knight attack
         {
-               Debug.Log("test2: "+transform.gameObject.name);
-
-            if (transform.gameObject.name == "Geo_Sword")
+            if ((Time.time - tempTime) > cd1 && other.gameObject.name == "Knight_T_Pose")//enemy attack
             {
-                int enemy_attack_number = transform.gameObject.GetComponentInParent<EnemyAttack>().Enemy_HitNum();
-                //Debug.Log(enemy_attack_number);
-                
-                if (enemy_attack_number == 0)
-                {
-                    return;
-                }
-            }
+                Debug.Log("test2: " + transform.gameObject.name);
+                Debug.Log("test tag: " + transform.gameObject.tag);
 
-            if (transform.gameObject.tag == "Kn_w" || transform.gameObject.tag == "enemy" 
-                || transform.gameObject.tag == "Kn_s")
+                if (transform.gameObject.name == "Geo_Sword")
+                {
+                    int enemy_attack_number = transform.gameObject.GetComponentInParent<EnemyAttack>().Enemy_HitNum();
+                    //Debug.Log(enemy_attack_number);
+
+                    if (enemy_attack_number == 0)
+                    {
+                        return;
+                    }
+                }
+
+                if (transform.gameObject.tag == "Kn_w" || transform.gameObject.tag == "enemy"
+                    || transform.gameObject.tag == "Kn_s")
                 {
                     return;
                 }
-               
+
                 //Debug.Log(transform.gameObject.name + other.gameObject.name);
                 //other.gameObject.GetComponent<PlayerHealth>().adjHealth(-1);
-            other.gameObject.GetComponent<Player_stats>().Get_Damage(10);
-            tempTime = Time.time;
+                other.gameObject.GetComponent<Player_stats>().Get_Damage(10);
+                tempTime = Time.time;
+            }
         }
 
-        if ((Time.time - tempTime) > cd2 && other.gameObject.tag == "Enemy")//knight attack
+        if (transform.gameObject.tag == "kn_w" || transform.gameObject.tag == "kn_s"
+            || transform.gameObject.tag == "kn_temp")//knight attack
         {
+            if ((Time.time - tempTime) > cd2 && other.gameObject.tag == "Enemy")
+            {
 
-            //Debug.Log(transform.gameObject.name);
-            if (transform.gameObject.name == "Geo_Sword" || transform.gameObject.name == "sword01"
-                || transform.gameObject.name == "shield_heater01")
-            {
-                return;
-            }
-            if (transform.gameObject.name == "Paladin_J_Nordstrom_Sword" || transform.gameObject.name == "Halberd_A"
-                || transform.gameObject.name == "Sword_2" || transform.gameObject.name == "Paladin_J_Nordstrom_Shield" ||
-                transform.gameObject.name == "shield_round" || transform.gameObject.name == "shield_monster")
-            {
-                int attack_number = transform.gameObject.GetComponentInParent<Attack>().GetHit();
-                if (attack_number == 0)
+                //Debug.Log(transform.gameObject.name);
+                if (transform.gameObject.name == "Geo_Sword" || transform.gameObject.name == "sword01"
+                    || transform.gameObject.name == "shield_heater01")
                 {
                     return;
                 }
-            }
+                /*"Paladin_J_Nordstrom_Sword" || transform.gameObject.name == "Halberd_A"
+                    || transform.gameObject.name == "1H_sword_C" || transform.gameObject.name == "Axe_A" ||
+                    transform.gameObject.name == "Knife_C")*/
+                if (transform.gameObject.tag == "kn_w")
+                {
+                    int attack_number = transform.gameObject.GetComponentInParent<Attack>().GetHit();
+                    if (attack_number == 0)
+                    {
+                        return;
+                    }
+                }
 
-            if (transform.gameObject.name == "Enemy_T_Pose" )
-            {
-                return;
-            }
+                if (transform.gameObject.name == "Enemy_T_Pose")
+                {
+                    return;
+                }
 
-            if (other.gameObject != null)
-            {
-                m_animator = other.GetComponent<Animator>();
-                m_animator.SetBool("e_hurt", true);
-                StartCoroutine("Message_hurt");
-            }
+                if (other.gameObject != null)
+                {
+                    m_animator = other.GetComponent<Animator>();
+                    m_animator.SetBool("e_hurt", true);
+                    StartCoroutine("Message_hurt");
+                }
 
-            if (transform.tag == "Kn_s")
-            {
-                Debug.Log(transform.gameObject.name);
-            }
-            get_damage = transform.gameObject.GetComponentInParent<Player_stats>().damage_value();
-            other.gameObject.GetComponentInParent<Health>().adjHealth(-get_damage);
+                if (transform.tag == "Kn_s")
+                {
+                    Debug.Log(transform.gameObject.name);
+                }
+                get_damage = transform.gameObject.GetComponentInParent<Player_stats>().damage_value();
+                other.gameObject.GetComponentInParent<Health>().adjHealth(-get_damage);
 
-            tempTime = Time.time;
+                tempTime = Time.time;
+            }
         }
 
     }

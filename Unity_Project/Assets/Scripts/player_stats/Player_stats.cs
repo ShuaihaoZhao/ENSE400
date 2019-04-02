@@ -28,7 +28,7 @@ public class Player_stats : Health {
     {
         if (currentHealth <= 0)
         {
-            Debug.Log("test death");
+
             currentHealth = 0;
             Die();
         }
@@ -61,10 +61,10 @@ public class Player_stats : Health {
         }
 
         currentHealth -= damage_value;
-        Debug.Log("test death "+ currentHealth);
+
         if (currentHealth <= 0)
         {
-            Debug.Log("test death");
+
             currentHealth = 0;
             Die();
         }
@@ -89,7 +89,7 @@ public class Player_stats : Health {
     public void Die()
     {
         m_animator.SetBool("k_death", true);
-        Debug.Log("death");
+
         switch_scene.GetComponent<LevelChanger>().Go_To_Gameover();
 
     }

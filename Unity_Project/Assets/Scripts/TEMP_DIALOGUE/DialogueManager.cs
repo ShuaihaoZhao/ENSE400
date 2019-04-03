@@ -74,7 +74,7 @@ public class DialogueManager : MonoBehaviour {
 
     void EndDialogue()
     {
-        Debug.Log(temp_dia.Get_Type());
+        //Debug.Log(temp_dia.Get_Type());
         animator.SetBool("IsOpen", false);
 
         if (temp_dia.Get_Type() == "B" && temp_dia.Get_Dialogue_condition()== true)

@@ -34,4 +34,9 @@ public class LevelChanger : MonoBehaviour
     {
         Change(2);
     }
+
+    public void Go_To_Game()
+    {
+        Change(1);
+    }
 }

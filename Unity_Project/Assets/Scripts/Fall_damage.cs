@@ -12,14 +12,15 @@ public class Fall_damage : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("test enter");
+        //Debug.Log(collision.gameObject.tag);
         if (first == true)
         {
             if (collision.gameObject.tag == "Kn")
             {
-                collision.gameObject.GetComponent<Player_stats>().Get_Damage(20);
+                collision.gameObject.GetComponent<Player_stats>().Get_Damage(10);
+                first = false;
             }
-            first = false;
+            
         }
     }
 

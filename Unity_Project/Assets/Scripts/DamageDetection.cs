@@ -33,8 +33,8 @@ public class DamageDetection : MonoBehaviour
         {
             if ((Time.time - tempTime) > cd1 && other.gameObject.name == "Knight_T_Pose")//enemy attack
             {
-                Debug.Log("test2: " + transform.gameObject.name);
-                Debug.Log("test tag: " + transform.gameObject.tag);
+               // Debug.Log("test2: " + transform.gameObject.name);
+                //Debug.Log("test tag: " + transform.gameObject.tag);
 
                 if (transform.gameObject.name == "Geo_Sword")
                 {
@@ -63,7 +63,9 @@ public class DamageDetection : MonoBehaviour
         if (transform.gameObject.tag == "kn_w" || transform.gameObject.tag == "kn_s"
             || transform.gameObject.tag == "kn_temp")//knight attack
         {
-            if ((Time.time - tempTime) > cd2 && other.gameObject.tag == "Enemy")
+            Debug.Log("bowman test: "+other.gameObject.tag);
+            if (((Time.time - tempTime) > cd2 && other.gameObject.tag == "Enemy") ||
+                ((Time.time - tempTime) > cd2 && other.gameObject.tag == "bowman"))
             {
 
                 //Debug.Log(transform.gameObject.name);
@@ -98,7 +100,7 @@ public class DamageDetection : MonoBehaviour
 
                 if (transform.tag == "Kn_s")
                 {
-                    Debug.Log(transform.gameObject.name);
+                    //Debug.Log(transform.gameObject.name);
                 }
                 get_damage = transform.gameObject.GetComponentInParent<Player_stats>().damage_value();
                 other.gameObject.GetComponentInParent<Health>().adjHealth(-get_damage);

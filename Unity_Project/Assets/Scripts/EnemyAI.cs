@@ -54,7 +54,7 @@ public class EnemyAI : MonoBehaviour {
             /*myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
              Quaternion.LookRotation(target.position - myTransform.position), rotationSpeed * Time.deltaTime);
              */
-            if (transform.gameObject.name == "Man_04" &&
+            if (transform.gameObject.tag == "bowman" &&
                Vector3.Distance(target.position, transform.position) > 10 &&
                Vector3.Distance(target.position, transform.position) < 20)
             {

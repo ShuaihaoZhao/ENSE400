@@ -53,7 +53,7 @@ public class EnemyAttack : MonoBehaviour {
         if (attackTimer == 0 && distance<12)
         {
             enemy_animator.SetBool("e_attack", true);
-            if (transform.gameObject.name == "Man_04")
+            if (transform.gameObject.tag == "bowman")
             {
                 GameObject joint = GameObject.FindGameObjectWithTag("bow");
                 GameObject a=Instantiate(arrow, joint.transform.position, Quaternion.Euler(100,0,0));//new Vector3(jotransform.position.x, transform.position.y+1.3f,transform.position.z) +transform.forward

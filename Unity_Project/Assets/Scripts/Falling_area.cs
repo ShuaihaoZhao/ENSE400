@@ -5,7 +5,7 @@ using UnityEngine;
 public class Falling_area : MonoBehaviour
 {
     public GameObject rock;
-    private float time = 3f;
+    private float time = 2f;
 
     private void Update()
     {
@@ -13,7 +13,7 @@ public class Falling_area : MonoBehaviour
         if (time <= 0.5f)
         {
             Generate_rocks();
-            time = 3;
+            time = 2;
             //Debug.Log("Rock");
         }
         time -= Time.deltaTime;
@@ -22,10 +22,10 @@ public class Falling_area : MonoBehaviour
 
     void Generate_rocks()
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 10; i++)
         {
             //Debug.Log("Rock");
-            Instantiate(rock, new Vector3(Random.Range(210, 240), 60f, Random.Range(1410, 1430)), Quaternion.identity);
+            Instantiate(rock, new Vector3(Random.Range(-185, -138), 150f, Random.Range(185, 215)), Quaternion.identity);
         }
     }
 }

@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour {
     public Item heal_bottle;
     public Item strength_bottle;
     public Item armor_bottle;
+    public Item map;
     public Equipment weapon;
 
     private Dialogue temp_dia;
@@ -99,6 +100,11 @@ public class DialogueManager : MonoBehaviour {
         if (temp_dia.Get_Type() == "R" && temp_dia.Get_Dialogue_condition() == true)
         {
             Inventory.instance.Add(armor_bottle);
+        }
+
+        if (temp_dia.Get_Type() == "M" && temp_dia.Get_Dialogue_condition() == true)
+        {
+            Inventory.instance.Add(map);
         }
 
         if (temp_dia.Get_Type() == "T" && temp_dia.Get_Dialogue_condition() == true)

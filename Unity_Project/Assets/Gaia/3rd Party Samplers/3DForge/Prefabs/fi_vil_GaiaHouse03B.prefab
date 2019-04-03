@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 407340}
   - component: {fileID: 3314846}
   - component: {fileID: 2367756}
-  - component: {fileID: 6573104}
   - component: {fileID: 20514214}
+  - component: {fileID: 5999201762548486638}
   m_Layer: 0
   m_Name: fi_vil_GaiaHouse03B
   m_TagString: Untagged
@@ -79,19 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6573104
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165828}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.240299, y: 6.490053, z: 5.9217534}
-  m_Center: {x: -0.0000705719, y: 3.0450268, z: 0.011349201}
 --- !u!205 &20514214
 LODGroup:
   m_ObjectHideFlags: 0
@@ -111,3 +98,17 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2367756}
   m_Enabled: 1
+--- !u!64 &5999201762548486638
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 0092da4d8df812b40833e9250d0010c1, type: 3}

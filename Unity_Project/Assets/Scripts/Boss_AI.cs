@@ -123,7 +123,9 @@ public class Boss_AI : MonoBehaviour
 
     public void Delete()
     {
+        GameObject part3 = GameObject.FindGameObjectWithTag("part3_wall");
 
+        part3.SetActive(false);
         if (myTransform.gameObject.GetComponent<Boss_AI>().GetDeath() == "death")
         {
             GameObject.Destroy(myTransform.gameObject);

@@ -8,12 +8,16 @@ public class Player_stats : Health {
     public Stats damage;
     public Stats armor;
     public GameObject switch_scene;
+    private bool knight_death;
+    
 
     public void Awake()
     {
         maxHealth = 100;
         currentHealth = maxHealth;
-        
+        knight_death = false;
+
+
     }
 
     public void Start()
@@ -26,6 +30,11 @@ public class Player_stats : Health {
 
     private void Update()
     {
+        if (knight_death)
+        {
+            Change_Scene();
+        }
+
         if (currentHealth <= 0)
         {
 
@@ -67,6 +76,7 @@ public class Player_stats : Health {
 
             currentHealth = 0;
             Die();
+            
         }
     }
 
@@ -90,8 +100,20 @@ public class Player_stats : Health {
     {
         m_animator.SetBool("k_death", true);
 
-        switch_scene.GetComponent<LevelChanger>().Go_To_Gameover();
+        StartCoroutine("Change_Scene_Message");
 
+    }
+
+    IEnumerator Change_Scene_Message()
+    {
+        yield return new WaitForSeconds(2);
+        knight_death = true;
+        
+    }
+
+    public void Change_Scene()
+    {
+        switch_scene.GetComponent<LevelChanger>().Go_To_Gameover();
     }
 
 

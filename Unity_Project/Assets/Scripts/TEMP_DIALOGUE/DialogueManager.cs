@@ -78,7 +78,7 @@ public class DialogueManager : MonoBehaviour {
 
         if (temp_dia.Get_Type() == "B" && temp_dia.Get_Dialogue_condition()== true)
         {
-            knight_target.GetComponent<Player_stats>().Heal(10);
+            knight_target.GetComponent<Player_stats>().Heal(100);
         }
 
         if (temp_dia.Get_Type() == "G" && temp_dia.Get_Dialogue_condition() == true)

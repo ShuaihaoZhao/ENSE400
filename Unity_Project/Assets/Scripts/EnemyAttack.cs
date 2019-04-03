@@ -55,7 +55,11 @@ public class EnemyAttack : MonoBehaviour {
             enemy_animator.SetBool("e_attack", true);
             if (transform.gameObject.name == "Man_04")
             {
-                GameObject a=Instantiate(arrow, new Vector3(transform.position.x, transform.position.y+1.3f,transform.position.z) +transform.forward, Quaternion.Euler(0,0,-90));
+                GameObject joint = GameObject.FindGameObjectWithTag("bow");
+                GameObject a=Instantiate(arrow, joint.transform.position, Quaternion.Euler(100,0,0));//new Vector3(jotransform.position.x, transform.position.y+1.3f,transform.position.z) +transform.forward
+ 
+
+
                 a.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Impulse);
             }
             

@@ -24,14 +24,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f5334c150edc934429ef7b7833a20f82, type: 3}
+        m_Texture: {fileID: 2800000, guid: a86d1be9074371f4e9f05c567fdfa12b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Shininess: 0.078125
     - _SpecPower: 0.078125
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.90196085, g: 0.8980393, b: 0.8980393, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
 --- !u!1002 &2100001
 EditorExtensionImpl:

@@ -6,6 +6,7 @@ public class arrow_shoot : MonoBehaviour
 {
     
     private GameObject target;
+    private Rigidbody rg;
     /*public float fire_speed = 15f;
 
     public void Set_target(Transform target)
@@ -29,7 +30,14 @@ public class arrow_shoot : MonoBehaviour
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Kn");
+        rg = GetComponent<Rigidbody>();
     }
+
+    public void FixedUpdate()
+    {
+        //transform.LookAt(transform.position + rg.velocity);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         
@@ -37,8 +45,9 @@ public class arrow_shoot : MonoBehaviour
         Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "Kn")
         {
-            target.GetComponent<Player_stats>().Get_Damage(20);
+            target.GetComponent<Player_stats>().Get_Damage(13);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        //
     }
 }

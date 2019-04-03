@@ -13,8 +13,8 @@ public class UI_manager : MonoBehaviour
 
     private void Start()
     {
-        UI_start();
-        check = true;
+        //UI_end();
+        check = false;
     }
     private void Update()
     {

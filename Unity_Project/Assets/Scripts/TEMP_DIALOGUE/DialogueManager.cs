@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour {
 
     public Animator animator;
     private GameObject knight_target;
+    public GameObject switch_scene;
 
     public Item heal_bottle;
     public Item strength_bottle;
@@ -77,6 +78,10 @@ public class DialogueManager : MonoBehaviour {
         //Debug.Log(temp_dia.Get_Type());
         animator.SetBool("IsOpen", false);
 
+        if (temp_dia == null || temp_dia.Get_Type() == "")
+        {
+            return;
+        }
         if (temp_dia.Get_Type() == "B" && temp_dia.Get_Dialogue_condition()== true)
         {
             knight_target.GetComponent<Player_stats>().Heal(100);
@@ -113,6 +118,24 @@ public class DialogueManager : MonoBehaviour {
             Inventory.instance.Add(weapon);
         }
 
+
+        if (temp_dia.Get_Type() == "PP" && temp_dia.Get_Dialogue_condition() == true)
+        {
+            StartCoroutine("Change_Scene_Message");
+        }
+
         temp_dia.Set_Dialogue_condition(false);
+    }
+
+    IEnumerator Change_Scene_Message()
+    {
+        yield return new WaitForSeconds(3);
+        Change_Scene();
+
+    }
+
+    public void Change_Scene()
+    {
+        switch_scene.GetComponent<LevelChanger>().Go_To_End();
     }
 }

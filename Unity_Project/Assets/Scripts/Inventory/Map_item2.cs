@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Map_segment2", menuName = "Inventory/map_segment2")]
 public class Map_item2 : Item
 {
-    [CreateAssetMenu(fileName = "Map_segment2", menuName = "Inventory/map_segment2")]
-    public class Map_unlock : Item
-    {
+   
 
         public override void UseItem()
         {
@@ -16,5 +15,5 @@ public class Map_item2 : Item
             part2.SetActive(false);
             Remove();
         }
-    }
+    
 }

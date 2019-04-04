@@ -63,12 +63,13 @@ public class DamageDetection : MonoBehaviour
         if (transform.gameObject.tag == "kn_w" || transform.gameObject.tag == "kn_s"
             || transform.gameObject.tag == "kn_temp")//knight attack
         {
-            Debug.Log("bowman test: "+other.gameObject.tag);
+            Debug.Log("bowman test: "+transform.gameObject.tag);
+            Debug.Log("testttttttt"+other.gameObject.tag);
             if (((Time.time - tempTime) > cd2 && other.gameObject.tag == "Enemy") ||
                 ((Time.time - tempTime) > cd2 && other.gameObject.tag == "bowman"))
             {
 
-                //Debug.Log(transform.gameObject.name);
+                Debug.Log(transform.gameObject.name);
                 if (transform.gameObject.name == "Geo_Sword" || transform.gameObject.name == "sword01"
                     || transform.gameObject.name == "shield_heater01")
                 {

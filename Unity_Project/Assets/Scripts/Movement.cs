@@ -111,6 +111,7 @@ public class Movement : MonoBehaviour {
         forwardInput = Input.GetAxis(inputSettings.FORWARD_AXIS);
         turnInput = Input.GetAxis(inputSettings.TURN_AXIS);
         jumpInput = Input.GetAxis(inputSettings.JUMP_AXIS);
+        //jumpInput = 0;
 
         m_animator.SetFloat("BlendY", forwardInput);//***
         m_animator.SetFloat("BlendX", turnInput);

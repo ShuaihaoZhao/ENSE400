@@ -39,4 +39,9 @@ public class LevelChanger : MonoBehaviour
     {
         Change(1);
     }
+
+    public void Go_To_End()
+    {
+        Change(4);
+    }
 }

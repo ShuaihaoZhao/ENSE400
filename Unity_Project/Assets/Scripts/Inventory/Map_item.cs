@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Map_item : MonoBehaviour {
+
 
     [CreateAssetMenu(fileName = "Map_segment", menuName = "Inventory/map_segment")]
     public class Map_unlock : Item
@@ -17,4 +17,4 @@ public class Map_item : MonoBehaviour {
             Remove();
         }
     }
-}
+

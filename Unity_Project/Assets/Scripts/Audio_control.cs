@@ -10,7 +10,7 @@ public class Audio_control : MonoBehaviour
     void Start()
     {
         index = 1;
-        this.GetComponent<AudioSource>().clip = ac[0];
+        this.GetComponent<AudioSource>().clip = ac[3];
         this.GetComponent<AudioSource>().Play();
     }
 

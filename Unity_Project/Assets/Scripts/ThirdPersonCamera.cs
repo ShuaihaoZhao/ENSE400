@@ -52,6 +52,11 @@ public class ThirdPersonCamera : MonoBehaviour {
             {
                 distance = Vector3.Distance(target.position, transform.position) + Time.deltaTime;//update the distance
             }
+
+            if (distance >5 )
+            {
+                distance = Vector3.Distance(target.position, transform.position) - Time.deltaTime;//update the distance
+            }
         }
         mouse_x += Input.GetAxis("Mouse X") * mouse_sensitivity;
         mouse_y -= Input.GetAxis("Mouse Y") * mouse_sensitivity;

@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour {
 
     public class MoveSettings
     {
-        public float forwardVel = 15;
+        public float forwardVel = 5;
         public float roatationVel = 100f;
         public float jumpVel = 5;
         public float disToGround = 0.1f;

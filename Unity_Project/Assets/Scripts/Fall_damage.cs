@@ -5,10 +5,18 @@ using UnityEngine;
 public class Fall_damage : MonoBehaviour
 {
     private bool first;
+    private GameObject knight;
+    private int damage;
 
     private void Start()
     {
         first = true;
+        knight = GameObject.FindGameObjectWithTag("Kn");
+        
+    }
+    private void Update()
+    {
+        damage = knight.GetComponent<Player_stats>().armor.GetValue() + 10;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -17,7 +25,7 @@ public class Fall_damage : MonoBehaviour
         {
             if (collision.gameObject.tag == "Kn")
             {
-                collision.gameObject.GetComponent<Player_stats>().Get_Damage(10);
+                collision.gameObject.GetComponent<Player_stats>().Get_Damage(damage);
                 first = false;
             }
             

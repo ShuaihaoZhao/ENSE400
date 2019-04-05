@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour {
 
     public class MoveSettings
     {
-        public float forwardVel = 50;
+        public float forwardVel = 5;
         public float roatationVel = 100f;
         public float jumpVel = 5;
         public float disToGround = 0.1f;
@@ -110,8 +110,8 @@ public class Movement : MonoBehaviour {
     {
         forwardInput = Input.GetAxis(inputSettings.FORWARD_AXIS);
         turnInput = Input.GetAxis(inputSettings.TURN_AXIS);
-        jumpInput = Input.GetAxis(inputSettings.JUMP_AXIS);
-        //jumpInput = 0;
+        //jumpInput = Input.GetAxis(inputSettings.JUMP_AXIS);
+        jumpInput = 0;
 
         m_animator.SetFloat("BlendY", forwardInput);//***
         m_animator.SetFloat("BlendX", turnInput);

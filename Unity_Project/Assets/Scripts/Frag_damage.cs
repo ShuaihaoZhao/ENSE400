@@ -12,13 +12,14 @@ public class Frag_damage : MonoBehaviour
     {
         knight = GameObject.FindGameObjectWithTag("Kn");
         counter = 0;
-        damage_fog = knight.GetComponent<Player_stats>().armor.GetValue() + 1;
+       
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        damage_fog = knight.GetComponent<Player_stats>().armor.GetValue() + 2;
     }
 
  

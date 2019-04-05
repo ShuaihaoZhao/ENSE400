@@ -53,9 +53,14 @@ public class DamageDetection : MonoBehaviour
                     return;
                 }
 
-                //Debug.Log(transform.gameObject.name + other.gameObject.name);
-                //other.gameObject.GetComponent<PlayerHealth>().adjHealth(-1);
-                other.gameObject.GetComponent<Player_stats>().Get_Damage(10);
+                if (transform.gameObject.name == "sword01")
+                {
+                    other.gameObject.GetComponent<Player_stats>().Get_Damage(18);
+                }
+                else
+                {
+                    other.gameObject.GetComponent<Player_stats>().Get_Damage(10);
+                }
                 tempTime = Time.time;
             }
         }
@@ -103,6 +108,8 @@ public class DamageDetection : MonoBehaviour
                 {
                     //Debug.Log(transform.gameObject.name);
                 }
+              
+
                 get_damage = transform.gameObject.GetComponentInParent<Player_stats>().damage_value();
                 other.gameObject.GetComponentInParent<Health>().adjHealth(-get_damage);
 

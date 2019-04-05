@@ -5,15 +5,19 @@ using UnityEngine;
 
 
     [CreateAssetMenu(fileName = "Map_segment", menuName = "Inventory/map_segment")]
-    public class Map_unlock : Item
+    public class Map_item : Item
     {
 
         public override void UseItem()
         {
             base.UseItem();
-            GameObject part1 = GameObject.FindGameObjectWithTag("part1_wall");
+            GameObject[] part1 = GameObject.FindGameObjectsWithTag("part1_wall");
+        foreach (var item in part1)
+        {
+            item.SetActive(false);
 
-            part1.SetActive(false);
+        }
+            //part1.SetActive(false);
             Remove();
         }
     }

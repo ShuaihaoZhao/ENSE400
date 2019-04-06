@@ -34,7 +34,7 @@ public class Boss_attack : MonoBehaviour
     {
         
         enemy_animSta = enemy_animator.GetCurrentAnimatorStateInfo(0);
-        if (m_heath.GetCurrentHealth() > 40)
+        if (m_heath.GetCurrentHealth() > 50)
         {
             if (!enemy_animSta.IsName("MKnight_1H_IDLE") && enemy_animSta.normalizedTime > 1f)
             {

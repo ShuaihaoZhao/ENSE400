@@ -65,7 +65,7 @@ public class EnemyAI : MonoBehaviour {
                     navMeshAgent_enemy.SetDestination(target.transform.position);
                 }
             }
-            else if (transform.gameObject.name != "Man_04" && 
+            else if (transform.gameObject.tag != "bowman" && 
                 Vector3.Distance(target.position, transform.position) > maxDistance &&
                 Vector3.Distance(target.position, transform.position)<10)
             {

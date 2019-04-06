@@ -11,6 +11,8 @@ public class Boss_AI : MonoBehaviour
     public int rotationSpeed = 1;
     public string message = "live";
     public float maxDistance;
+
+    public GameObject sword;
     //private float v_y;
 
     private Vector3 pos = Vector3.zero;
@@ -49,9 +51,9 @@ public class Boss_AI : MonoBehaviour
         //Debug.Log(transform.gameObject.name);
         Boss_health h = myTransform.gameObject.GetComponent<Boss_health>();
 
-        if (h.GetCurrentHealth() < 40)
+        if (h.GetCurrentHealth() < 50)
         {
-            navMeshAgent_enemy.speed = 3f;
+            navMeshAgent_enemy.speed = 4f;
         }
 
         if (h.GetCurrentHealth() != 0)
@@ -106,7 +108,7 @@ public class Boss_AI : MonoBehaviour
     public void Death()
     {
         enemy_animator.SetBool("b_death", true);
-
+        //sword.GetComponent<Collider>().enabled= !sword.GetComponent<Collider>().enabled;
         StartCoroutine("Message_death");
     }
 
